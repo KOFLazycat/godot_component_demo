@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhmmipo58bo18"]
+
+[ext_resource type="Script" path="res://entities/player/ant_player/ant_enemy.gd" id="1_d84jk"]
+[ext_resource type="Texture2D" uid="uid://5salnml5tlxh" path="res://assets/textures/ant_player/蚂蚁_1.png" id="2_ibpou"]
+[ext_resource type="Texture2D" uid="uid://chj5qsreiqjn0" path="res://assets/textures/ant_player/蚂蚁_2.png" id="3_uav1d"]
+[ext_resource type="Texture2D" uid="uid://bko2x3ywj464" path="res://assets/textures/ant_player/蚂蚁_3.png" id="4_j4hp8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n4s45"]
+radius = 5.09902
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fkmhg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ibpou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uav1d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j4hp8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="AntEnemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_d84jk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n4s45")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.956863, 0.203922, 0.0196078, 1)
+scale = Vector2(0.08, 0.08)
+sprite_frames = SubResource("SpriteFrames_fkmhg")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 30.0
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 3.0
+neighbor_distance = 100.0
+max_speed = 40.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
