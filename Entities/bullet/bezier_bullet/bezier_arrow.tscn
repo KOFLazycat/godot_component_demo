@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c12jrgc4t3gwu"]
+
+[ext_resource type="Script" path="res://entities/bullet/bezier_bullet/bezier_arrow.gd" id="1_axriv"]
+[ext_resource type="Texture2D" uid="uid://cidf4u2fp83cy" path="res://assets/textures/bezier_bullet/arrow.png" id="2_0nxaw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n3ip7"]
+radius = 20.0
+
+[node name="BezierArrow" type="Node2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_axriv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0nxaw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(94, 0)
+shape = SubResource("CircleShape2D_n3ip7")

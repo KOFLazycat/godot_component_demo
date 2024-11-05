@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bmp3wia32rgq3"]
+
+[node name="BezierDemo" type="Node2D"]

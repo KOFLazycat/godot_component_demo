@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5ng0lmol3md7"]
+
+[ext_resource type="Script" path="res://entities/bullet/bezier_bullet/bezier_enemy.gd" id="1_1q6ma"]
+[ext_resource type="Texture2D" uid="uid://co18gpcyq6x4i" path="res://icon.svg" id="1_dr7v1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wuh28"]
+size = Vector2(90, 90)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4tg7c"]
+radius = 83.1505
+
+[node name="BezierEnemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_1q6ma")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wuh28")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dr7v1")
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_4tg7c")
