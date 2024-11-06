@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ck4tjcqn4ct1f"
-path="res://.godot/imported/leaf.png-1ca96afe7c7af925ed2c6e0f76d5c1ad.ctex"
+path="res://.godot/imported/leaf.png-5e8004d5e8b6ebcc8dc937766537efdd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/leaf/leaf.png"
-dest_files=["res://.godot/imported/leaf.png-1ca96afe7c7af925ed2c6e0f76d5c1ad.ctex"]
+source_file="res://Assets/textures/leaf/leaf.png"
+dest_files=["res://.godot/imported/leaf.png-5e8004d5e8b6ebcc8dc937766537efdd.ctex"]
 
 [params]
 

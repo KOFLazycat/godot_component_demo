@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bko2x3ywj464"
-path="res://.godot/imported/蚂蚁_3.png-7917517db5318e3c66b75b7b1911105f.ctex"
+path="res://.godot/imported/蚂蚁_3.png-cd204c68645473f6963b4fcf787a7ab2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ant_player/蚂蚁_3.png"
-dest_files=["res://.godot/imported/蚂蚁_3.png-7917517db5318e3c66b75b7b1911105f.ctex"]
+source_file="res://Assets/textures/ant_player/蚂蚁_3.png"
+dest_files=["res://.godot/imported/蚂蚁_3.png-cd204c68645473f6963b4fcf787a7ab2.ctex"]
 
 [params]
 
