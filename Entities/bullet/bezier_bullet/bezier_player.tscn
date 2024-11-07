@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ui01f7klbl8u"]
+
+[ext_resource type="Script" path="res://Entities/bullet/bezier_bullet/bezier_player.gd" id="1_536fl"]
+[ext_resource type="Texture2D" uid="uid://b7jyf86w2dkfe" path="res://Assets/textures/bezier_bullet/wand_fire.png" id="2_jxpfm"]
+
+[node name="BezierPlayer" type="Node2D" groups=["bezier_player"]]
+script = ExtResource("1_536fl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jxpfm")
+offset = Vector2(45, 0)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(60, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.35
+one_shot = true

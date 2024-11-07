@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Node2D
 
 @onready var hurt_box: Area2D = $HurtBox
 
@@ -8,4 +8,4 @@ func _ready() -> void:
 
 
 func on_hurt_box_area_entered(area: Area2D) -> void:
-	area.owner.queue_free()
+	print("Enemy Is Hurt.")

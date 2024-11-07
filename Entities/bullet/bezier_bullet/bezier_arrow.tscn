@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c12jrgc4t3gwu"]
 
 [ext_resource type="Script" path="res://entities/bullet/bezier_bullet/bezier_arrow.gd" id="1_axriv"]
-[ext_resource type="Texture2D" uid="uid://cidf4u2fp83cy" path="res://assets/textures/bezier_bullet/arrow.png" id="2_0nxaw"]
+[ext_resource type="Texture2D" uid="uid://cidf4u2fp83cy" path="res://Assets/textures/bezier_bullet/arrow.png" id="2_0nxaw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n3ip7"]
 radius = 20.0
