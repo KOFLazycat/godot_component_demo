@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bli2ccmoimtkw"]
+
+[ext_resource type="Texture2D" uid="uid://bwo2nygomdgkn" path="res://Assets/textures/arrows_bullet/arrow.png" id="1_ipmlb"]
+[ext_resource type="Script" path="res://Entities/bullet/arrows_bullet/arrow.gd" id="1_namyf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mv88d"]
+radius = 3.0
+
+[node name="Arrow" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 6
+script = ExtResource("1_namyf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ipmlb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_mv88d")
