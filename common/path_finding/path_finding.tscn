@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl1jf4ihahoe4"]
+
+[ext_resource type="Script" path="res://common/path_finding/path_finding.gd" id="1_7ndn8"]
+[ext_resource type="Texture2D" uid="uid://cohqkepq7agm7" path="res://assets/textures/bg/bg.png" id="2_dplbd"]
+[ext_resource type="Texture2D" uid="uid://5salnml5tlxh" path="res://assets/textures/ant_player/蚂蚁_1.png" id="4_qgt0x"]
+
+[sub_resource type="Curve2D" id="Curve2D_uy0ts"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 70, 228, 0, 0, 0, 0, 289, 165, 0, 0, 0, 0, 492, 198, 0, 0, 0, 0, 757, 98, 0, 0, 0, 0, 894, 121, 0, 0, 0, 0, 905, 299, 0, 0, 0, 0, 838, 406, 0, 0, 0, 0, 391, 382, 0, 0, 0, 0, 185, 377, 0, 0, 0, 0, 69, 232, 0, 0, 0, 0, 69, 230)
+}
+point_count = 11
+
+[node name="PathFinding" type="Node2D"]
+script = ExtResource("1_7ndn8")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(-192, -302)
+texture = ExtResource("2_dplbd")
+centered = false
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(69, 230)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_qgt0x")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_uy0ts")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(70, 228)
+rotation = -0.280108

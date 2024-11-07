@@ -1,0 +1,2 @@
+1. 介绍Path2D和PathFollow2D使用方法
+2. 实现了一个player按照指定Path2D运动的功能
