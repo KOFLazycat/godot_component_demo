@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwfetx7bcmw41"
-path="res://.godot/imported/woman.png-c8245a9c3cc80f453c49c2e867ddf843.ctex"
+path="res://.godot/imported/woman.png-f50b48ec6bb408242f01d657ae88995f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/arrows_bullet/woman.png"
-dest_files=["res://.godot/imported/woman.png-c8245a9c3cc80f453c49c2e867ddf843.ctex"]
+source_file="res://assets/textures/arrows_bullet/woman.png"
+dest_files=["res://.godot/imported/woman.png-f50b48ec6bb408242f01d657ae88995f.ctex"]
 
 [params]
 

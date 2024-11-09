@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cidf4u2fp83cy"
-path="res://.godot/imported/arrow.png-ec75263fa48701acfa2403e0eccf1892.ctex"
+path="res://.godot/imported/arrow.png-4dcda45c895dfaa7517909cda4dc8d0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/bezier_bullet/arrow.png"
-dest_files=["res://.godot/imported/arrow.png-ec75263fa48701acfa2403e0eccf1892.ctex"]
+source_file="res://assets/textures/bezier_bullet/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-4dcda45c895dfaa7517909cda4dc8d0f.ctex"]
 
 [params]
 
