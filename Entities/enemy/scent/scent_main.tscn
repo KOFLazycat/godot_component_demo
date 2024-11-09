@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://5i3086hgs5f7"]
+
+[ext_resource type="PackedScene" uid="uid://m88dlubxrlho" path="res://entities/enemy/scent/scent_player.tscn" id="2_441cb"]
+[ext_resource type="Texture2D" uid="uid://co18gpcyq6x4i" path="res://icon.svg" id="3_imgp8"]
+[ext_resource type="PackedScene" uid="uid://ykxbj2p6oaq8" path="res://entities/enemy/scent/scent_enemy.tscn" id="3_vymi4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vymi4"]
+size = Vector2(64, 64)
+
+[node name="ScentMain" type="Node2D"]
+
+[node name="ScentPlayer" parent="." instance=ExtResource("2_441cb")]
+position = Vector2(356, 206)
+
+[node name="Enemy" type="Node2D" parent="."]
+
+[node name="ScentEnemy" parent="Enemy" node_paths=PackedStringArray("target") instance=ExtResource("3_vymi4")]
+position = Vector2(150, 254)
+target = NodePath("../../ScentPlayer")
+
+[node name="ScentEnemy2" parent="Enemy" node_paths=PackedStringArray("target") instance=ExtResource("3_vymi4")]
+position = Vector2(150, 121)
+target = NodePath("../../ScentPlayer")
+
+[node name="ScentEnemy3" parent="Enemy" node_paths=PackedStringArray("target") instance=ExtResource("3_vymi4")]
+position = Vector2(457, 62)
+target = NodePath("../../ScentPlayer")
+
+[node name="ScentEnemy4" parent="Enemy" node_paths=PackedStringArray("target") instance=ExtResource("3_vymi4")]
+position = Vector2(438, 498)
+target = NodePath("../../ScentPlayer")
+
+[node name="ScentEnemy5" parent="Enemy" node_paths=PackedStringArray("target") instance=ExtResource("3_vymi4")]
+position = Vector2(786, 361)
+target = NodePath("../../ScentPlayer")
+
+[node name="ScentEnemy6" parent="Enemy" node_paths=PackedStringArray("target") instance=ExtResource("3_vymi4")]
+position = Vector2(821, 98)
+target = NodePath("../../ScentPlayer")
+
+[node name="Wall" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
+position = Vector2(571, 219)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall/StaticBody2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_imgp8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
+shape = SubResource("RectangleShape2D_vymi4")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Wall"]
+position = Vector2(569, 461)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall/StaticBody2D2"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_imgp8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_vymi4")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Wall"]
+position = Vector2(570, 333)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall/StaticBody2D3"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_imgp8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D3"]
+shape = SubResource("RectangleShape2D_vymi4")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Wall"]
+position = Vector2(505, 217)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall/StaticBody2D4"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_imgp8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D4"]
+shape = SubResource("RectangleShape2D_vymi4")

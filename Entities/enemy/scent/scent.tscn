@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5hw5eu35nm2s"]
+
+[ext_resource type="Script" path="res://entities/enemy/scent/scent.gd" id="1_jj0mi"]
+[ext_resource type="Texture2D" uid="uid://cpkt4d7asjjsx" path="res://assets/textures/bomb_player/d1.png" id="2_cwgg5"]
+
+[node name="Scent" type="Node2D"]
+script = ExtResource("1_jj0mi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.219608, 0.870588, 0.0666667, 0.278431)
+scale = Vector2(3, 3)
+texture = ExtResource("2_cwgg5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5

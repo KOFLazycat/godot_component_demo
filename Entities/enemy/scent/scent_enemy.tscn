@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ykxbj2p6oaq8"]
+
+[ext_resource type="Script" path="res://entities/enemy/scent/scent_enemy.gd" id="1_4dgqt"]
+[ext_resource type="Texture2D" uid="uid://cpkt4d7asjjsx" path="res://assets/textures/bomb_player/d1.png" id="2_nt1t7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4dgqt"]
+
+[node name="ScentEnemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_4dgqt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4dgqt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.713726, 0.14902, 0.133333, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("2_nt1t7")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
