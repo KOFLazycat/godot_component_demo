@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://5s3r8co8oyx2"]
+
+[ext_resource type="Script" path="res://entities/line/jump/jump.gd" id="1_6eppf"]
+[ext_resource type="Texture2D" uid="uid://cpkt4d7asjjsx" path="res://assets/textures/bomb_player/d1.png" id="2_rcwmm"]
+
+[node name="Jump" type="Node2D"]
+script = ExtResource("1_6eppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(462, 109)
+scale = Vector2(3, 3)
+texture = ExtResource("2_rcwmm")
+offset = Vector2(0, -7)
+
+[node name="Line2D" type="Line2D" parent="."]
