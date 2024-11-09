@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2g2y2wfv3lrn"]
+
+[ext_resource type="Script" path="res://vfx/damage_number/damage_number_main.gd" id="1_a1olv"]
+[ext_resource type="Texture2D" uid="uid://cpkt4d7asjjsx" path="res://assets/textures/bomb_player/d1.png" id="2_efp5y"]
+
+[node name="DamageNumberMain" type="Node2D"]
+script = ExtResource("1_a1olv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(450, 240)
+scale = Vector2(3, 3)
+texture = ExtResource("2_efp5y")
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D"]
+position = Vector2(-5, -7)
