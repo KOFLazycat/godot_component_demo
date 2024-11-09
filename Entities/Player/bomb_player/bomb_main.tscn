@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://vdnxtabgy7vo"]
+
+[ext_resource type="Texture2D" uid="uid://co07jdiltk7y0" path="res://assets/textures/bg/bg_grass.png" id="1_l4skp"]
+[ext_resource type="PackedScene" uid="uid://b4bqyeq40s6ol" path="res://entities/player/bomb_player/bomb_player.tscn" id="2_dxygh"]
+
+[node name="BombMain" type="Node2D"]
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(-26, -60)
+scale = Vector2(5, 5)
+texture = ExtResource("1_l4skp")
+centered = false
+
+[node name="BombPlayer" parent="." instance=ExtResource("2_dxygh")]
+position = Vector2(157, 163)
