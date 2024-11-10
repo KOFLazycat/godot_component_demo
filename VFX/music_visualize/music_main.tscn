@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://k2cflnjqoted"]
+
+[ext_resource type="PackedScene" uid="uid://dqhd8qj6n167m" path="res://vfx/music_visualize/music_visualize.tscn" id="1_ltlrs"]
+[ext_resource type="AudioStream" uid="uid://dwi0jcl51d4qw" path="res://assets/audios/Toby Fox - MEGALOVANIA.ogg" id="2_auaj8"]
+
+[node name="MusicMain" type="Node2D"]
+
+[node name="MusicVisualizeRight" parent="." instance=ExtResource("1_ltlrs")]
+position = Vector2(480, 270)
+
+[node name="MusicVisualizeLeft" parent="." instance=ExtResource("1_ltlrs")]
+position = Vector2(480, 270)
+rotation = 3.14159
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_auaj8")
+autoplay = true
+bus = &"Music"

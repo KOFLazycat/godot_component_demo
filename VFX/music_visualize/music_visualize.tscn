@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqhd8qj6n167m"]
+
+[ext_resource type="Script" path="res://vfx/music_visualize/music_visualize.gd" id="1_5qkpc"]
+
+[node name="MusicVisualize" type="Line2D"]
+script = ExtResource("1_5qkpc")
