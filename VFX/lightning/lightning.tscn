@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://dofksftoyofba"]
+
+[ext_resource type="Script" path="res://vfx/lightning/lightning.gd" id="1_nw1mr"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nw1mr"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_nw1mr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.488889, 0.504573), -2.79691, -2.79691, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Animation" id="Animation_nw1mr"]
+resource_name = "flash"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flash/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n41vt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flash/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n41vt"]
+_data = {
+&"RESET": SubResource("Animation_n41vt"),
+&"flash": SubResource("Animation_nw1mr")
+}
+
+[node name="Lightning" type="Line2D"]
+material = SubResource("CanvasItemMaterial_nw1mr")
+width_curve = SubResource("Curve_nw1mr")
+script = ExtResource("1_nw1mr")
+
+[node name="Flash" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Flash"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="FlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_n41vt")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
