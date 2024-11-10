@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://daqln87mgkphw"]
+
+[sub_resource type="Curve" id="Curve_ys5j8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bgwte"]
+curve = SubResource("Curve_ys5j8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_00huw"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 30.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_bgwte")
+
+[node name="ExplosionPartiocles" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(480, 239)
+amount = 60
+lifetime = 0.5
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_00huw")

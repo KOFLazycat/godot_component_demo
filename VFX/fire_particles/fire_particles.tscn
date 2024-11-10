@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://swtav13hql2d"]
+
+[sub_resource type="Gradient" id="Gradient_g41ql"]
+offsets = PackedFloat32Array(0, 0.215789, 0.452632, 0.8, 1)
+colors = PackedColorArray(0.882353, 0.0823529, 0.0745098, 1, 0.92549, 0.458824, 0.0156863, 1, 0.909804, 0.682353, 0.137255, 1, 0.952941, 0.831373, 0.545098, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_y4sgr"]
+gradient = SubResource("Gradient_g41ql")
+
+[sub_resource type="Curve" id="Curve_smid8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_l1ee0"]
+curve = SubResource("Curve_smid8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3soqk"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 35.0
+gravity = Vector3(0, -600, 0)
+radial_accel_min = -60.0
+radial_accel_max = -30.0
+scale_min = 2.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_l1ee0")
+color_ramp = SubResource("GradientTexture1D_y4sgr")
+
+[node name="FireParticles" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(478, 210)
+amount = 1000
+lifetime = 0.8
+process_material = SubResource("ParticleProcessMaterial_3soqk")
