@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dq3l8bf8f5wte"]
+
+[ext_resource type="Shader" path="res://assets/shaders/electric_arc.gdshader" id="1_a3lhk"]
+[ext_resource type="Texture2D" uid="uid://c4t1wcynouka6" path="res://assets/textures/shader_texture/noise/noise-150x119.png" id="2_4f40q"]
+
+[sub_resource type="Gradient" id="Gradient_4f40q"]
+offsets = PackedFloat32Array(0, 0.524752, 1)
+colors = PackedColorArray(0.701961, 0.713726, 0.0980392, 0, 0.701961, 0.713726, 0.0980392, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ss10f"]
+gradient = SubResource("Gradient_4f40q")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4f40q"]
+shader = ExtResource("1_a3lhk")
+shader_parameter/line_gradient = SubResource("GradientTexture1D_ss10f")
+shader_parameter/width = 0.002
+shader_parameter/fix_start = true
+shader_parameter/fix_end = true
+shader_parameter/inverted = false
+shader_parameter/noise_texture = ExtResource("2_4f40q")
+shader_parameter/speed = 0.1
+shader_parameter/variation = 0.018
+shader_parameter/scale = 3.0
+shader_parameter/repeats = 10.0
+
+[node name="ElectricArc" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4f40q")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

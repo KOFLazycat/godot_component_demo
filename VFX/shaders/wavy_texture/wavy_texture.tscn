@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfrfboodwdkcl"]
+
+[ext_resource type="Shader" path="res://assets/shaders/wavy_texture.gdshader" id="1_gf4gd"]
+[ext_resource type="Texture2D" uid="uid://cf4qj7ayrx4qc" path="res://assets/textures/shader_texture/godot_icon_color.png" id="1_le8b4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bpat6"]
+shader = ExtResource("1_gf4gd")
+shader_parameter/waveAmplitude = 0.25
+shader_parameter/correctVertex = true
+shader_parameter/waveFrequency = 10.0
+shader_parameter/verticalWave = true
+shader_parameter/keepTransparency = true
+shader_parameter/useTime = true
+shader_parameter/waveSpeed = 1.0
+shader_parameter/progress = 0.0
+shader_parameter/firstHalf = 0.5
+shader_parameter/secondHalf = 0.5
+shader_parameter/freezeFirstHalf = false
+shader_parameter/freezeSecondHalf = false
+
+[node name="WavyTexture" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_bpat6")
+position = Vector2(453, 223)
+scale = Vector2(2, 2)
+texture = ExtResource("1_le8b4")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://7clx281klcad"]
+
+[ext_resource type="Shader" path="res://assets/shaders/highlight_shader.gdshader" id="1_xiy4b"]
+[ext_resource type="Texture2D" uid="uid://b2mhbmag0bo35" path="res://assets/textures/shader_texture/godot_icon_parchment.png" id="1_xsqly"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nci10"]
+shader = ExtResource("1_xiy4b")
+shader_parameter/speed = 1.0
+shader_parameter/line_width = 0.15
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/pause_duration = 0.15
+shader_parameter/offset = 2.0
+
+[node name="HighlightShader" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_nci10")
+position = Vector2(433, 176)
+texture = ExtResource("1_xsqly")

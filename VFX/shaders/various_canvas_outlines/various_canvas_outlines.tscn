@@ -1,0 +1,197 @@
+[gd_scene load_steps=34 format=3 uid="uid://c8q0rjmgrrl32"]
+
+[ext_resource type="Shader" path="res://assets/shaders/various_canvas_outlines_basic.gdshader" id="1_n4cgw"]
+[ext_resource type="Texture2D" uid="uid://cf4qj7ayrx4qc" path="res://assets/textures/shader_texture/godot_icon_color.png" id="1_n780s"]
+[ext_resource type="Shader" path="res://assets/shaders/various_canvas_outlines_jittery.gdshader" id="3_7bc6r"]
+[ext_resource type="Shader" path="res://assets/shaders/various_canvas_outlines_gradient.gdshader" id="4_wl018"]
+[ext_resource type="Shader" path="res://assets/shaders/various_canvas_outlines_gradient_blotchy.gdshader" id="5_eb8na"]
+[ext_resource type="Shader" path="res://assets/shaders/various_canvas_outlines_scrollign.gdshader" id="6_akj8l"]
+[ext_resource type="Shader" path="res://assets/shaders/various_canvas_outlines_blotchy_scrollign.gdshader" id="7_2lw1t"]
+[ext_resource type="Shader" path="res://assets/shaders/various_canvas_outlines_gradient_scrolling.gdshader" id="8_803l6"]
+[ext_resource type="Shader" path="res://assets/shaders/various_canvas_outlines_gradient_blotchy_scrolling.gdshader" id="9_qhe0d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7bc6r"]
+shader = ExtResource("1_n4cgw")
+shader_parameter/color = Color(0.982343, 0.982342, 0.982342, 1)
+shader_parameter/thickness = 1.0
+shader_parameter/tolerance = 0.0
+shader_parameter/diagonals = true
+shader_parameter/rounded = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wl018"]
+shader = ExtResource("3_7bc6r")
+shader_parameter/maxLineWidth = 3.0
+shader_parameter/minLineWidth = 1.0
+shader_parameter/speed = 1.0
+shader_parameter/blockSize = 20.0
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/tolerance = 0.0
+
+[sub_resource type="Gradient" id="Gradient_wl018"]
+offsets = PackedFloat32Array(0, 0.529703, 1)
+colors = PackedColorArray(0.819608, 0.137255, 0.403922, 1, 0.305727, 0.501804, 0.816619, 1, 0.0830695, 0.552983, 0.524526, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eb8na"]
+gradient = SubResource("Gradient_wl018")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eb8na"]
+shader = ExtResource("4_wl018")
+shader_parameter/color = SubResource("GradientTexture1D_eb8na")
+shader_parameter/gradientResolution = 10
+shader_parameter/thickness = 4.0
+shader_parameter/tolerance = 0.01
+shader_parameter/diagonals = true
+shader_parameter/rounded = true
+
+[sub_resource type="Gradient" id="Gradient_eb8na"]
+offsets = PackedFloat32Array(0, 0.475248, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.726616, 0.316768, 0.393088, 0.52549, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_akj8l"]
+gradient = SubResource("Gradient_eb8na")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_akj8l"]
+shader = ExtResource("5_eb8na")
+shader_parameter/maxLineWidth = 5.0
+shader_parameter/minLineWidth = 1.0
+shader_parameter/speed = 1.0
+shader_parameter/blockSize = 20.0
+shader_parameter/color = SubResource("GradientTexture1D_akj8l")
+shader_parameter/gradientResolution = 10
+shader_parameter/tolerance = 0.0
+
+[sub_resource type="Gradient" id="Gradient_akj8l"]
+offsets = PackedFloat32Array(0, 0.470297, 1)
+colors = PackedColorArray(0.623529, 0.0431373, 0.0901961, 1, 0.945469, 0.165518, 0.897114, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2lw1t"]
+gradient = SubResource("Gradient_akj8l")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2lw1t"]
+shader = ExtResource("6_akj8l")
+shader_parameter/scrollingTexture = SubResource("GradientTexture1D_2lw1t")
+shader_parameter/textureScale = Vector2(1, 1)
+shader_parameter/angle = 45.0
+shader_parameter/textureSpeed = 0.2
+shader_parameter/thickness = 1.5
+shader_parameter/tolerance = 0.0
+shader_parameter/diagonals = true
+shader_parameter/rounded = true
+
+[sub_resource type="Gradient" id="Gradient_2lw1t"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_803l6"]
+gradient = SubResource("Gradient_2lw1t")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_803l6"]
+shader = ExtResource("7_2lw1t")
+shader_parameter/maxLineWidth = 10.0
+shader_parameter/minLineWidth = 5.0
+shader_parameter/speed = 1.0
+shader_parameter/blockSize = 20.0
+shader_parameter/scrollingTexture = SubResource("GradientTexture1D_803l6")
+shader_parameter/textureScale = Vector2(1, 1)
+shader_parameter/angle = 45.0
+shader_parameter/textureSpeed = 0.1
+shader_parameter/tolerance = 0.0
+
+[sub_resource type="Gradient" id="Gradient_qhe0d"]
+colors = PackedColorArray(0.63034, 0.202066, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t3oyt"]
+gradient = SubResource("Gradient_qhe0d")
+
+[sub_resource type="Gradient" id="Gradient_803l6"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qhe0d"]
+gradient = SubResource("Gradient_803l6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qhe0d"]
+shader = ExtResource("8_803l6")
+shader_parameter/scrollingTexture = SubResource("GradientTexture1D_qhe0d")
+shader_parameter/textureScale = Vector2(1, 1)
+shader_parameter/angle = 45.0
+shader_parameter/textureSpeed = 0.1
+shader_parameter/textureStrength = 0.5
+shader_parameter/thickness = 5.651
+shader_parameter/tolerance = 0.0
+shader_parameter/color = SubResource("GradientTexture1D_t3oyt")
+shader_parameter/gradientResolution = 10
+shader_parameter/diagonals = true
+shader_parameter/rounded = true
+
+[sub_resource type="Gradient" id="Gradient_2h011"]
+colors = PackedColorArray(0.741176, 0.0588235, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hdhtg"]
+gradient = SubResource("Gradient_2h011")
+
+[sub_resource type="Gradient" id="Gradient_t3oyt"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2h011"]
+gradient = SubResource("Gradient_t3oyt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t3oyt"]
+shader = ExtResource("9_qhe0d")
+shader_parameter/scrollingTexture = SubResource("GradientTexture1D_2h011")
+shader_parameter/textureScale = Vector2(1, 1)
+shader_parameter/angle = 45.0
+shader_parameter/textureSpeed = 0.1
+shader_parameter/textureStrength = 0.5
+shader_parameter/maxLineWidth = 10.0
+shader_parameter/minLineWidth = 5.0
+shader_parameter/speed = 1.0
+shader_parameter/blockSize = 20.0
+shader_parameter/color = SubResource("GradientTexture1D_hdhtg")
+shader_parameter/gradientResolution = 10
+shader_parameter/tolerance = 0.0
+
+[node name="VariousCanvasOutlines" type="Node2D"]
+
+[node name="Sprite2DBasic" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_7bc6r")
+position = Vector2(270, 179)
+scale = Vector2(2, 2)
+texture = ExtResource("1_n780s")
+
+[node name="Sprite2DJittery" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_wl018")
+position = Vector2(412, 179)
+scale = Vector2(2, 2)
+texture = ExtResource("1_n780s")
+
+[node name="Sprite2DGradient" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_eb8na")
+position = Vector2(548, 179)
+scale = Vector2(2, 2)
+texture = ExtResource("1_n780s")
+
+[node name="Sprite2DGradientBlotchy" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_akj8l")
+position = Vector2(685, 179)
+scale = Vector2(2, 2)
+texture = ExtResource("1_n780s")
+
+[node name="Sprite2DScrollign" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_2lw1t")
+position = Vector2(264, 329)
+scale = Vector2(2, 2)
+texture = ExtResource("1_n780s")
+
+[node name="Sprite2DBlotchyScrollign" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_803l6")
+position = Vector2(403, 322)
+scale = Vector2(2, 2)
+texture = ExtResource("1_n780s")
+
+[node name="Sprite2DGradientScrolling" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_qhe0d")
+position = Vector2(552, 322)
+scale = Vector2(2, 2)
+texture = ExtResource("1_n780s")
+
+[node name="Sprite2DGradientBlotchyScrolling" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_t3oyt")
+position = Vector2(690, 328)
+scale = Vector2(2, 2)
+texture = ExtResource("1_n780s")
