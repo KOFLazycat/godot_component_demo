@@ -1,0 +1,313 @@
+[gd_scene load_steps=31 format=3 uid="uid://dkhoxfu3pliig"]
+
+[ext_resource type="Shader" path="res://assets/shaders/burn.gdshader" id="1_1unbr"]
+[ext_resource type="Texture2D" uid="uid://bnwkgpmjni4ly" path="res://assets/textures/shader_texture/noise/spreadnoise.png" id="2_ar62i"]
+[ext_resource type="Texture2D" uid="uid://b2mhbmag0bo35" path="res://assets/textures/shader_texture/godot_icon_parchment.png" id="3_xplah"]
+[ext_resource type="Script" path="res://vfx/shaders/disintegration_effect/disintegration.gd" id="4_xplah"]
+[ext_resource type="Shader" path="res://assets/shaders/undertale_lines.gdshader" id="5_7cjs1"]
+[ext_resource type="Shader" path="res://assets/shaders/crack.gdshader" id="5_7gp2s"]
+[ext_resource type="Texture2D" uid="uid://bpe7f47lqvhgk" path="res://assets/textures/shader_texture/godot_icon_white.png" id="7_5hs0n"]
+[ext_resource type="Shader" path="res://assets/shaders/sand.gdshader" id="7_ombb7"]
+[ext_resource type="Shader" path="res://assets/shaders/undertale.gdshader" id="9_gthgy"]
+[ext_resource type="Shader" path="res://assets/shaders/undertale_cleaned.gdshader" id="10_akwxq"]
+
+[sub_resource type="Gradient" id="Gradient_0kubu"]
+offsets = PackedFloat32Array(0, 0.026, 0.058, 0.102)
+colors = PackedColorArray(1, 0.141176, 0, 1, 0, 0, 0, 1, 0.215686, 0.0980392, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ist1a"]
+gradient = SubResource("Gradient_0kubu")
+
+[sub_resource type="Gradient" id="Gradient_pevio"]
+offsets = PackedFloat32Array(0, 0.065, 0.113, 0.156, 0.669, 0.982, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.282353, 0, 1, 1, 0.960784, 0.407843, 1, 1, 0.141176, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ainwx"]
+gradient = SubResource("Gradient_pevio")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r6yx1"]
+shader = ExtResource("1_1unbr")
+shader_parameter/direction = Vector3(0, -1, 0)
+shader_parameter/spread = 75.0
+shader_parameter/flatness = null
+shader_parameter/initial_linear_velocity = 10.0
+shader_parameter/initial_angle = null
+shader_parameter/angular_velocity = null
+shader_parameter/orbit_velocity = null
+shader_parameter/linear_accel = 20.0
+shader_parameter/radial_accel = null
+shader_parameter/tangent_accel = null
+shader_parameter/damping = null
+shader_parameter/scale = 1.0
+shader_parameter/hue_variation = 0.02
+shader_parameter/anim_speed = null
+shader_parameter/anim_offset = null
+shader_parameter/initial_linear_velocity_random = 1.0
+shader_parameter/initial_angle_random = 1.0
+shader_parameter/angular_velocity_random = null
+shader_parameter/orbit_velocity_random = null
+shader_parameter/linear_accel_random = null
+shader_parameter/radial_accel_random = null
+shader_parameter/tangent_accel_random = null
+shader_parameter/damping_random = null
+shader_parameter/scale_random = null
+shader_parameter/hue_variation_random = 1.0
+shader_parameter/anim_speed_random = null
+shader_parameter/anim_offset_random = null
+shader_parameter/lifetime_randomness = 0.8
+shader_parameter/trail_divisor = 1
+shader_parameter/gravity = null
+shader_parameter/color_ramp = SubResource("GradientTexture1D_ainwx")
+shader_parameter/burn_ramp = SubResource("GradientTexture1D_ist1a")
+shader_parameter/sprite = ExtResource("3_xplah")
+shader_parameter/noise = ExtResource("2_ar62i")
+shader_parameter/progress = 0.5
+shader_parameter/particle_lifetime_fraction = 0.3
+
+[sub_resource type="Gradient" id="Gradient_ctce3"]
+offsets = PackedFloat32Array(0, 0.044, 1)
+colors = PackedColorArray(1, 1, 1, 0.890196, 0, 1, 0.972549, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qkwst"]
+gradient = SubResource("Gradient_ctce3")
+
+[sub_resource type="Gradient" id="Gradient_xa1wu"]
+offsets = PackedFloat32Array(0, 0.036, 0.099)
+colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0.905882, 1, 1, 1, 1, 0.890196)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dd34o"]
+gradient = SubResource("Gradient_xa1wu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b2j60"]
+shader = ExtResource("5_7gp2s")
+shader_parameter/direction = Vector3(0, -1, 0)
+shader_parameter/spread = 190.0
+shader_parameter/flatness = null
+shader_parameter/initial_linear_velocity = 5.0
+shader_parameter/initial_angle = null
+shader_parameter/angular_velocity = null
+shader_parameter/orbit_velocity = null
+shader_parameter/linear_accel = 1.0
+shader_parameter/radial_accel = null
+shader_parameter/tangent_accel = null
+shader_parameter/damping = null
+shader_parameter/scale = 1.0
+shader_parameter/hue_variation = 0.0
+shader_parameter/anim_speed = null
+shader_parameter/anim_offset = null
+shader_parameter/initial_linear_velocity_random = 0.0
+shader_parameter/initial_angle_random = 0.0
+shader_parameter/angular_velocity_random = null
+shader_parameter/orbit_velocity_random = null
+shader_parameter/linear_accel_random = null
+shader_parameter/radial_accel_random = null
+shader_parameter/tangent_accel_random = null
+shader_parameter/damping_random = null
+shader_parameter/scale_random = null
+shader_parameter/hue_variation_random = 1.0
+shader_parameter/anim_speed_random = null
+shader_parameter/anim_offset_random = null
+shader_parameter/lifetime_randomness = 0.3
+shader_parameter/trail_divisor = 1
+shader_parameter/gravity = null
+shader_parameter/color_ramp = SubResource("GradientTexture1D_qkwst")
+shader_parameter/fade_ramp = SubResource("GradientTexture1D_dd34o")
+shader_parameter/sprite = ExtResource("3_xplah")
+shader_parameter/noise = ExtResource("2_ar62i")
+shader_parameter/progress = 0.5
+shader_parameter/particle_lifetime_fraction = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7sd8o"]
+shader = ExtResource("7_ombb7")
+shader_parameter/direction = Vector3(0, 0, 0)
+shader_parameter/spread = 0.0
+shader_parameter/flatness = null
+shader_parameter/initial_linear_velocity = 0.0
+shader_parameter/initial_angle = null
+shader_parameter/angular_velocity = null
+shader_parameter/orbit_velocity = null
+shader_parameter/linear_accel = 0.0
+shader_parameter/radial_accel = null
+shader_parameter/tangent_accel = null
+shader_parameter/damping = null
+shader_parameter/scale = 1.0
+shader_parameter/hue_variation = 0.0
+shader_parameter/anim_speed = null
+shader_parameter/anim_offset = null
+shader_parameter/initial_linear_velocity_random = 0.0
+shader_parameter/initial_angle_random = 0.0
+shader_parameter/angular_velocity_random = null
+shader_parameter/orbit_velocity_random = null
+shader_parameter/linear_accel_random = null
+shader_parameter/radial_accel_random = null
+shader_parameter/tangent_accel_random = null
+shader_parameter/damping_random = null
+shader_parameter/scale_random = null
+shader_parameter/hue_variation_random = 0.0
+shader_parameter/anim_speed_random = null
+shader_parameter/anim_offset_random = null
+shader_parameter/lifetime_randomness = 0.0
+shader_parameter/trail_divisor = 1
+shader_parameter/gravity = Vector3(0, 100, 0)
+shader_parameter/sprite = ExtResource("7_5hs0n")
+shader_parameter/noise = ExtResource("2_ar62i")
+shader_parameter/progress = 0.5
+shader_parameter/particle_lifetime_fraction = 0.5
+
+[sub_resource type="Gradient" id="Gradient_t7w6p"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0vmp0"]
+gradient = SubResource("Gradient_t7w6p")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3ryh"]
+shader = ExtResource("9_gthgy")
+shader_parameter/direction = Vector3(0, -1, 0)
+shader_parameter/spread = 180.0
+shader_parameter/flatness = null
+shader_parameter/initial_linear_velocity = 10.0
+shader_parameter/initial_angle = null
+shader_parameter/angular_velocity = null
+shader_parameter/orbit_velocity = null
+shader_parameter/linear_accel = null
+shader_parameter/radial_accel = null
+shader_parameter/tangent_accel = null
+shader_parameter/damping = null
+shader_parameter/scale = 1.0
+shader_parameter/hue_variation = null
+shader_parameter/anim_speed = null
+shader_parameter/anim_offset = null
+shader_parameter/initial_linear_velocity_random = 0.5
+shader_parameter/initial_angle_random = null
+shader_parameter/angular_velocity_random = null
+shader_parameter/orbit_velocity_random = null
+shader_parameter/linear_accel_random = null
+shader_parameter/radial_accel_random = null
+shader_parameter/tangent_accel_random = null
+shader_parameter/damping_random = null
+shader_parameter/scale_random = null
+shader_parameter/hue_variation_random = null
+shader_parameter/anim_speed_random = null
+shader_parameter/anim_offset_random = null
+shader_parameter/lifetime_randomness = 0.2
+shader_parameter/trail_divisor = 1
+shader_parameter/gravity = Vector3(0, -20, 0)
+shader_parameter/color_ramp = SubResource("GradientTexture1D_0vmp0")
+shader_parameter/sprite = ExtResource("7_5hs0n")
+shader_parameter/progress = 0.5
+shader_parameter/particle_lifetime_fraction = 0.5
+
+[sub_resource type="Gradient" id="Gradient_5su7y"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j485p"]
+gradient = SubResource("Gradient_5su7y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x6pvv"]
+shader = ExtResource("5_7cjs1")
+shader_parameter/direction = Vector3(0, -1, 0)
+shader_parameter/spread = 180.0
+shader_parameter/flatness = null
+shader_parameter/initial_linear_velocity = 10.0
+shader_parameter/initial_angle = null
+shader_parameter/angular_velocity = null
+shader_parameter/orbit_velocity = null
+shader_parameter/linear_accel = 20.0
+shader_parameter/radial_accel = null
+shader_parameter/tangent_accel = null
+shader_parameter/damping = null
+shader_parameter/scale = 1.0
+shader_parameter/hue_variation = null
+shader_parameter/anim_speed = null
+shader_parameter/anim_offset = null
+shader_parameter/initial_linear_velocity_random = 0.5
+shader_parameter/initial_angle_random = null
+shader_parameter/angular_velocity_random = null
+shader_parameter/orbit_velocity_random = null
+shader_parameter/linear_accel_random = 0.15
+shader_parameter/radial_accel_random = null
+shader_parameter/tangent_accel_random = null
+shader_parameter/damping_random = null
+shader_parameter/scale_random = null
+shader_parameter/hue_variation_random = null
+shader_parameter/anim_speed_random = null
+shader_parameter/anim_offset_random = null
+shader_parameter/lifetime_randomness = 0.2
+shader_parameter/trail_divisor = 1
+shader_parameter/gravity = Vector3(0, -20, 0)
+shader_parameter/color_ramp = SubResource("GradientTexture1D_j485p")
+shader_parameter/sprite = ExtResource("7_5hs0n")
+shader_parameter/progress = 0.5
+shader_parameter/particle_lifetime_fraction = 0.5
+
+[sub_resource type="Gradient" id="Gradient_6nep5"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_31mx5"]
+gradient = SubResource("Gradient_6nep5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y3gyd"]
+shader = ExtResource("10_akwxq")
+shader_parameter/progress = 0.0
+shader_parameter/particle_lifetime_fraction = 0.5
+shader_parameter/connect_lines = false
+shader_parameter/direction = Vector3(0, -1, 0)
+shader_parameter/spread = 45.0
+shader_parameter/initial_linear_velocity = 40.0
+shader_parameter/linear_accel = 20.0
+shader_parameter/initial_linear_velocity_random = 0.4
+shader_parameter/linear_accel_random = 0.15
+shader_parameter/lifetime_randomness = 0.2
+shader_parameter/color_ramp = SubResource("GradientTexture1D_31mx5")
+shader_parameter/sprite = ExtResource("7_5hs0n")
+
+[node name="DisintegrationEffect" type="Node2D"]
+
+[node name="Burn" type="GPUParticles2D" parent="."]
+position = Vector2(50, 200)
+amount = 2500
+lifetime = 3.0
+explosiveness = 1.0
+process_material = SubResource("ShaderMaterial_r6yx1")
+script = ExtResource("4_xplah")
+
+[node name="Crack" type="GPUParticles2D" parent="."]
+position = Vector2(250, 200)
+amount = 2500
+lifetime = 3.0
+explosiveness = 1.0
+process_material = SubResource("ShaderMaterial_b2j60")
+script = ExtResource("4_xplah")
+
+[node name="Sand" type="GPUParticles2D" parent="."]
+self_modulate = Color(0.521569, 0.521569, 0.521569, 1)
+position = Vector2(450, 200)
+amount = 2500
+lifetime = 3.0
+explosiveness = 1.0
+process_material = SubResource("ShaderMaterial_7sd8o")
+script = ExtResource("4_xplah")
+
+[node name="Undertale" type="GPUParticles2D" parent="."]
+position = Vector2(650, 200)
+amount = 2500
+lifetime = 3.0
+explosiveness = 1.0
+process_material = SubResource("ShaderMaterial_v3ryh")
+script = ExtResource("4_xplah")
+
+[node name="UndertaleLines" type="GPUParticles2D" parent="."]
+position = Vector2(850, 200)
+amount = 2500
+lifetime = 3.0
+explosiveness = 1.0
+process_material = SubResource("ShaderMaterial_x6pvv")
+script = ExtResource("4_xplah")
+
+[node name="UndertaleCleaned" type="GPUParticles2D" parent="."]
+position = Vector2(650, 400)
+amount = 2500
+lifetime = 3.0
+explosiveness = 1.0
+process_material = SubResource("ShaderMaterial_y3gyd")
+script = ExtResource("4_xplah")

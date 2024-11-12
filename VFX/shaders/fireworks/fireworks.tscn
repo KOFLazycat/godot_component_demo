@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://jhnmhp4imrmo"]
+
+[ext_resource type="Shader" path="res://assets/shaders/fireworks.gdshader" id="1_m8k8n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gamnj"]
+shader = ExtResource("1_m8k8n")
+shader_parameter/TWOPI = 6.28319
+shader_parameter/NUM_EXPLOSIONS = 8.0
+shader_parameter/NUM_PARTICLES = 70.0
+shader_parameter/MOD3 = Vector3(0.1031, 0.11369, 0.13787)
+
+[node name="Fireworks" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_gamnj")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

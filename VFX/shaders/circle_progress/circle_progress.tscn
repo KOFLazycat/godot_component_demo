@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcdfqf65he3tc"]
+
+[ext_resource type="Shader" path="res://assets/shaders/circle_progress.gdshader" id="1_87ghq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r84h4"]
+shader = ExtResource("1_87ghq")
+shader_parameter/outer_radius = 0.651
+shader_parameter/inner_radius = 0.734
+shader_parameter/turn = 0.256
+shader_parameter/blur = 0.003
+shader_parameter/fill_ratio = 1.0
+
+[node name="CircleProgress" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_r84h4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

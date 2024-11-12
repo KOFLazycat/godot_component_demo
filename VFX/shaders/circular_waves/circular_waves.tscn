@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://5puaty51tjry"]
+
+[ext_resource type="Shader" path="res://assets/shaders/circular_waves.gdshader" id="1_6xxoc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ofd5s"]
+shader = ExtResource("1_6xxoc")
+shader_parameter/amplitude = 2.0
+shader_parameter/frequency = 12.69
+shader_parameter/rippleRate = 9.2
+shader_parameter/waveAmplitude = 0.1
+shader_parameter/waveFrequency = 4.0
+shader_parameter/blendingAmount = 0.6
+
+[node name="CircularWaves" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ofd5s")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
