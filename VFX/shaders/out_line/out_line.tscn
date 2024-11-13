@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://muglxgxhwucd"]
+
+[ext_resource type="Texture2D" uid="uid://k6q2pr8budtc" path="res://assets/textures/shader_texture/godot_logo.png" id="1_dfe7w"]
+[ext_resource type="Shader" path="res://assets/shaders/out_line.gdshader" id="1_yxve7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4m0kg"]
+shader = ExtResource("1_yxve7")
+shader_parameter/color = Color(1, 0, 0.301961, 1)
+shader_parameter/width = 2.705
+shader_parameter/pattern = 1
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[node name="OutLine" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_4m0kg")
+position = Vector2(431, 265)
+texture = ExtResource("1_dfe7w")

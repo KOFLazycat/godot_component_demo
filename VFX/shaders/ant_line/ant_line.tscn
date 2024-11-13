@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4nqfoll4l4ky"]
+
+[ext_resource type="Shader" path="res://assets/shaders/ant_line.gdshader" id="1_1yxpy"]
+[ext_resource type="Texture2D" uid="uid://7xudsfmnnt2p" path="res://assets/textures/shader_texture/dianxain.png" id="1_7va31"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i3kch"]
+shader = ExtResource("1_1yxpy")
+shader_parameter/speed = 1.0
+
+[node name="AntLine" type="Node2D"]
+
+[node name="Line2D" type="Line2D" parent="."]
+material = SubResource("ShaderMaterial_i3kch")
+points = PackedVector2Array(273, 189, 456, 97, 646, 97, 734, 270, 660, 409, 355, 472, 225, 354, 273, 189)
+width = 100.0
+default_color = Color(0.972549, 0.227451, 0.223529, 1)
+texture = ExtResource("1_7va31")
+texture_mode = 1
+joint_mode = 2
+antialiased = true

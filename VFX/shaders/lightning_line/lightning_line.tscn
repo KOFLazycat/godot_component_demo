@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://48qypxbumyt4"]
+
+[ext_resource type="Shader" path="res://assets/shaders/lightning_line.gdshader" id="1_pg1po"]
+[ext_resource type="Texture2D" uid="uid://crdss8gudovwn" path="res://assets/textures/shader_texture/lightning.png" id="1_pxx25"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y12fv"]
+shader = ExtResource("1_pg1po")
+shader_parameter/speed = 0.5
+shader_parameter/p = 0.0
+
+[sub_resource type="Curve" id="Curve_emjo4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.496296, 0.504573), -2.6753, -2.6753, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="LightningLine" type="Node2D"]
+
+[node name="Line2D" type="Line2D" parent="."]
+material = SubResource("ShaderMaterial_y12fv")
+points = PackedVector2Array(490, 75, 369, 162, 470, 226, 376, 307, 453, 340, 394, 382, 441, 415, 422, 523)
+width = 150.0
+width_curve = SubResource("Curve_emjo4")
+default_color = Color(0.901961, 0.85098, 0.129412, 1)
+texture = ExtResource("1_pxx25")
+texture_mode = 2
+joint_mode = 2
+antialiased = true

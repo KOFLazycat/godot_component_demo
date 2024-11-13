@@ -1,0 +1,115 @@
+[gd_scene load_steps=16 format=3 uid="uid://cl8hxue102ttx"]
+
+[ext_resource type="Shader" path="res://assets/shaders/venom_dotted_line.gdshader" id="1_u56ma"]
+[ext_resource type="Texture2D" uid="uid://7xudsfmnnt2p" path="res://assets/textures/shader_texture/dianxain.png" id="2_u56ma"]
+[ext_resource type="Texture2D" uid="uid://ct28jvtu4b6du" path="res://assets/textures/shader_texture/WispySmoke01_8x8.png" id="3_7011h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_up0gs"]
+shader = ExtResource("1_u56ma")
+shader_parameter/speed = 0.5
+
+[sub_resource type="Gradient" id="Gradient_u56ma"]
+offsets = PackedFloat32Array(0, 0.352632, 0.647368, 1)
+colors = PackedColorArray(0.756863, 0.117647, 0.603922, 0, 0.758128, 0.117768, 0.603768, 1, 0.841404, 6.08373e-05, 0.648313, 1, 0.843137, 0, 0.647059, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7011h"]
+gradient = SubResource("Gradient_u56ma")
+
+[sub_resource type="Curve" id="Curve_u56ma"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.495413, 0.703297), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7011h"]
+curve = SubResource("Curve_u56ma")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u56ma"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(150, 100, 1)
+direction = Vector3(0, 0, 0)
+spread = 90.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+gravity = Vector3(0, -98, 0)
+scale_min = 2.0
+scale_max = 20.0
+scale_curve = SubResource("CurveTexture_7011h")
+color = Color(1, 1, 1, 0.752941)
+color_ramp = SubResource("GradientTexture1D_7011h")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7011h"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 8
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_7011h"]
+offsets = PackedFloat32Array(0, 0.394737, 0.605263, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_up0gs"]
+gradient = SubResource("Gradient_7011h")
+
+[sub_resource type="Curve" id="Curve_x74qf"]
+_data = [Vector2(0, 0.516483), 0.0, 0.0, 0, 0, Vector2(0.495413, 1), 0.0, 0.0, 0, 0, Vector2(0.99998, 0.692308), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.681319), 0.0, 0.0, 0, 0, Vector2(1, 0.67033), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_1dnhp"]
+curve = SubResource("Curve_x74qf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_up0gs"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 100.0
+angle_min = 1.07288e-05
+angle_max = 720.0
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 30.0
+radial_accel_max = 30.0
+scale_min = 0.2
+scale_max = 0.8
+scale_curve = SubResource("CurveTexture_1dnhp")
+color = Color(0.960784, 0.376471, 0.956863, 0.172549)
+color_ramp = SubResource("GradientTexture1D_up0gs")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.02
+anim_speed_min = 1.0
+anim_speed_max = 2.0
+
+[node name="Venom" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.451128, 0.00014444, 0.452071, 1)
+polygon = PackedVector2Array(250, 150, 600, 150, 600, 400, 250, 400)
+
+[node name="Line2D" type="Line2D" parent="."]
+material = SubResource("ShaderMaterial_up0gs")
+points = PackedVector2Array(250, 150, 600, 150, 600, 400, 250, 400, 250, 150)
+width = 25.0
+default_color = Color(0.839216, 0.12549, 0.843137, 1)
+texture = ExtResource("2_u56ma")
+texture_mode = 1
+joint_mode = 2
+
+[node name="DustGPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(430, 328)
+amount = 50
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_u56ma")
+
+[node name="SmokeGPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_7011h")
+position = Vector2(424, 267)
+amount = 50
+lifetime = 3.0
+explosiveness = 0.1
+randomness = 0.05
+texture = ExtResource("3_7011h")
+process_material = SubResource("ParticleProcessMaterial_up0gs")
