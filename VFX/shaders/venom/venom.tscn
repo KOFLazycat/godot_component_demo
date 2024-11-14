@@ -1,12 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://cl8hxue102ttx"]
+[gd_scene load_steps=28 format=3 uid="uid://cl8hxue102ttx"]
 
 [ext_resource type="Shader" path="res://assets/shaders/venom_dotted_line.gdshader" id="1_u56ma"]
 [ext_resource type="Texture2D" uid="uid://7xudsfmnnt2p" path="res://assets/textures/shader_texture/dianxain.png" id="2_u56ma"]
+[ext_resource type="Shader" path="res://assets/shaders/venom_dust.gdshader" id="3_1dnhp"]
 [ext_resource type="Texture2D" uid="uid://ct28jvtu4b6du" path="res://assets/textures/shader_texture/WispySmoke01_8x8.png" id="3_7011h"]
+[ext_resource type="Shader" path="res://assets/shaders/venom_bubble.gdshader" id="4_up0gs"]
+[ext_resource type="Texture2D" uid="uid://biijeaowpdb6d" path="res://assets/textures/shader_texture/t_fx_smoke.TGA" id="5_x74qf"]
+[ext_resource type="Shader" path="res://assets/shaders/venom_disturbance_effect.gdshader" id="7_65n42"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_up0gs"]
 shader = ExtResource("1_u56ma")
 shader_parameter/speed = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_65n42"]
+shader = ExtResource("3_1dnhp")
+shader_parameter/size = 0.5
 
 [sub_resource type="Gradient" id="Gradient_u56ma"]
 offsets = PackedFloat32Array(0, 0.352632, 0.647368, 1)
@@ -29,7 +37,7 @@ emission_box_extents = Vector3(150, 100, 1)
 direction = Vector3(0, 0, 0)
 spread = 90.0
 initial_velocity_min = 10.0
-initial_velocity_max = 100.0
+initial_velocity_max = 30.0
 angular_velocity_min = -720.0
 angular_velocity_max = 720.0
 gravity = Vector3(0, -98, 0)
@@ -83,6 +91,45 @@ hue_variation_max = 0.02
 anim_speed_min = 1.0
 anim_speed_max = 2.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x74qf"]
+shader = ExtResource("4_up0gs")
+shader_parameter/progress1 = 0.5
+shader_parameter/progress2 = 0.6
+shader_parameter/noise = ExtResource("5_x74qf")
+shader_parameter/progress4 = 0.0
+shader_parameter/edge_color = Color(0.68714, 0.000504025, 0.718929, 1)
+
+[sub_resource type="Gradient" id="Gradient_up0gs"]
+offsets = PackedFloat32Array(0, 0.642105, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x74qf"]
+gradient = SubResource("Gradient_up0gs")
+
+[sub_resource type="Curve" id="Curve_1dnhp"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.605505, 0.538462), 2.49143, 2.49143, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_65n42"]
+curve = SubResource("Curve_1dnhp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7011h"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 15.0
+scale_curve = SubResource("CurveTexture_65n42")
+color = Color(0.571241, 0.000247585, 0.574689, 1)
+color_initial_ramp = SubResource("GradientTexture1D_x74qf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yq1ki"]
+shader = ExtResource("7_65n42")
+shader_parameter/smoke = ExtResource("5_x74qf")
+shader_parameter/speed = 0.1
+shader_parameter/size = 0.01
+
 [node name="Venom" type="Node2D"]
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
@@ -99,9 +146,10 @@ texture_mode = 1
 joint_mode = 2
 
 [node name="DustGPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_65n42")
 position = Vector2(430, 328)
 amount = 50
-lifetime = 5.0
+lifetime = 3.0
 process_material = SubResource("ParticleProcessMaterial_u56ma")
 
 [node name="SmokeGPUParticles2D" type="GPUParticles2D" parent="."]
@@ -113,3 +161,18 @@ explosiveness = 0.1
 randomness = 0.05
 texture = ExtResource("3_7011h")
 process_material = SubResource("ParticleProcessMaterial_up0gs")
+
+[node name="BubbleGPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_x74qf")
+position = Vector2(424, 271)
+amount = 16
+lifetime = 2.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_7011h")
+
+[node name="DisturbanceEffect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_yq1ki")
+offset_left = 193.0
+offset_top = 91.0
+offset_right = 688.0
+offset_bottom = 457.0
