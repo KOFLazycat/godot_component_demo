@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg34uefmi0rnu"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vortex.gdshader" id="1_had1l"]
+[ext_resource type="Texture2D" uid="uid://crdss8gudovwn" path="res://assets/textures/shader_texture/lightning.png" id="2_swujn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_swujn"]
+shader = ExtResource("1_had1l")
+shader_parameter/intensity = 20.0
+shader_parameter/mask = 0.45
+shader_parameter/offset = 0.34
+
+[node name="Vortex" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_swujn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_swujn")

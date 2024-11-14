@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://b715giawb27a8"]
+
+[ext_resource type="Shader" path="res://assets/shaders/simple_transition_effect.gdshader" id="1_f4ajm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sdwdp"]
+shader = ExtResource("1_f4ajm")
+shader_parameter/Speed = 1.0
+shader_parameter/Intensity = 2.0
+shader_parameter/Hardness = 500.0
+shader_parameter/Scale = Vector2(1, 1)
+shader_parameter/RotationSpeed = 1.0
+shader_parameter/Color = Vector3(1, 1, 1)
+
+[node name="SimpleTransitionEffect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_sdwdp")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://buw44i7kles5"]
+
+[ext_resource type="Shader" path="res://assets/shaders/shader_art.gdshader" id="1_p316s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uwvtk"]
+shader = ExtResource("1_p316s")
+
+[node name="ShaderArt" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_uwvtk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

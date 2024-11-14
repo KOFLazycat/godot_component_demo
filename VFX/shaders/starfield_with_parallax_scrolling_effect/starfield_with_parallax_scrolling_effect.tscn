@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhhp724ggx1g7"]
+
+[ext_resource type="Shader" path="res://assets/shaders/starfield_with_parallax_scrolling_effect.gdshader" id="1_r1vh5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o4npw"]
+shader = ExtResource("1_r1vh5")
+shader_parameter/dimensions = Vector2(1024, 600)
+shader_parameter/small_stars = 50.0
+shader_parameter/small_stars_far_size = 0.5
+shader_parameter/small_stars_near_size = 1.0
+shader_parameter/large_stars = 8.0
+shader_parameter/large_stars_far_size = 0.5
+shader_parameter/large_stars_near_size = 1.0
+shader_parameter/far_stars_color = Color(0.5, 0, 1, 1)
+shader_parameter/near_stars_color = Color(1, 1, 1, 1)
+shader_parameter/base_scroll_speed = 0.05
+shader_parameter/additional_scroll_speed = 0.05
+
+[node name="StarfieldWithParallaxScrollingEffect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_o4npw")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

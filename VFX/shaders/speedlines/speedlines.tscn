@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl4uguwvxfl4a"]
+
+[ext_resource type="Shader" path="res://assets/shaders/speedlines.gdshader" id="1_0qc1i"]
+[ext_resource type="Texture2D" uid="uid://c4t1wcynouka6" path="res://assets/textures/shader_texture/noise/noise-150x119.png" id="2_jh4xv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jh4xv"]
+shader = ExtResource("1_0qc1i")
+shader_parameter/noise = ExtResource("2_jh4xv")
+shader_parameter/line_color_a = Color(1, 1, 1, 1)
+shader_parameter/line_color_b = Color(0, 1, 1, 1)
+shader_parameter/line_threshold = 0.6
+shader_parameter/inverse_speed = 10.0
+shader_parameter/line_length = 1000.0
+shader_parameter/angle = 0.0
+
+[node name="Speedlines" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_jh4xv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

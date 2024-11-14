@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://sgvqubxf73rf"]
+
+[ext_resource type="Texture2D" uid="uid://k6q2pr8budtc" path="res://assets/textures/shader_texture/godot_logo.png" id="1_8q338"]
+[ext_resource type="Shader" path="res://assets/shaders/shining_sprite_effect.gdshader" id="1_skgxe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_og15k"]
+shader = ExtResource("1_skgxe")
+shader_parameter/speed = 1.0
+shader_parameter/tint = Color(0.87451, 0.0980392, 0.156863, 1)
+shader_parameter/span = 0.3
+
+[node name="ShiningSpriteEffect" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_og15k")
+position = Vector2(456, 256)
+texture = ExtResource("1_8q338")

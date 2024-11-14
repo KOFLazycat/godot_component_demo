@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://c54qs2hnbqiv0"]
+
+[ext_resource type="Shader" path="res://assets/shaders/ring_of_power.gdshader" id="1_g8lx6"]
+[ext_resource type="Texture2D" uid="uid://c4t1wcynouka6" path="res://assets/textures/shader_texture/noise/noise-150x119.png" id="2_ol2t6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ol2t6"]
+shader = ExtResource("1_g8lx6")
+shader_parameter/radius = 0.7
+shader_parameter/thickness = 0.2
+shader_parameter/color = Color(0.9, 0.4, 0.1, 1)
+shader_parameter/brightness = 5.0
+shader_parameter/angular_speed = 2.5
+shader_parameter/radial_speed = 1.4
+shader_parameter/alpha = 0.5
+shader_parameter/noise = ExtResource("2_ol2t6")
+
+[node name="RingOfPower" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ol2t6")
+layout_mode = 0
+offset_left = 234.0
+offset_top = 74.0
+offset_right = 575.0
+offset_bottom = 418.0

@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsh06v5271j3t"]
+
+[ext_resource type="Shader" path="res://assets/shaders/waving_particles.gdshader" id="1_3n25o"]
+[ext_resource type="Texture2D" uid="uid://6lt484g2jwxp" path="res://assets/textures/shader_texture/light_big.png" id="2_dn5wa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dn5wa"]
+shader = ExtResource("1_3n25o")
+shader_parameter/dimensions = Vector2(1152, 648)
+shader_parameter/rows = 20.0
+shader_parameter/columns = 5.0
+shader_parameter/vertical_scroll = 0.5
+shader_parameter/horizontal_scroll = 0.1
+shader_parameter/size_min = 0.3
+shader_parameter/size_max = 0.7
+shader_parameter/wave_min = 0.1
+shader_parameter/wave_max = 1.0
+shader_parameter/wave_speed = 0.5
+shader_parameter/wave_rotation = 1.0
+shader_parameter/far_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/near_color = Color(1, 1, 1, 1)
+shader_parameter/particle_texture = ExtResource("2_dn5wa")
+
+[node name="WavingParticles" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_dn5wa")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

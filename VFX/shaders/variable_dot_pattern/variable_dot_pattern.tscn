@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk3as4766m4yc"]
+
+[ext_resource type="Shader" path="res://assets/shaders/variable_dot_pattern.gdshader" id="1_manra"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ih14"]
+shader = ExtResource("1_manra")
+shader_parameter/variant = 1.912
+shader_parameter/distortion = 1.535
+shader_parameter/seed = 0.3
+shader_parameter/stretch = Vector3(3, 3, 3)
+shader_parameter/pattern = 6.0
+shader_parameter/blur = 2.0
+
+[node name="VariableDotPattern" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4ih14")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

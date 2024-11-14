@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctexrn2jhovt3"]
+
+[ext_resource type="Shader" path="res://assets/shaders/rain_and_snow.gdshader" id="1_4n4sj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_52qdu"]
+shader = ExtResource("1_4n4sj")
+shader_parameter/rain_amount = 200.0
+shader_parameter/near_rain_length = 0.03
+shader_parameter/far_rain_length = 0.01
+shader_parameter/near_rain_width = 1.0
+shader_parameter/far_rain_width = 0.5
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(1, 1, 1, 1)
+shader_parameter/base_rain_speed = 0.5
+shader_parameter/additional_rain_speed = 0.5
+shader_parameter/slant = 0.2
+
+[node name="RainAndSnow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_52qdu")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.243137, 0.243137, 0.243137, 0.517647)

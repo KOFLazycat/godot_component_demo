@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3fnyldt8rq3p"]
+
+[ext_resource type="Shader" path="res://assets/shaders/saw_transition_shader.gdshader" id="1_4a8a0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glc0v"]
+shader = ExtResource("1_4a8a0")
+shader_parameter/saw_b_shift = -0.267
+shader_parameter/saw_a_interval = 1.0
+shader_parameter/saw_b_interval = 2.0
+shader_parameter/saw_a_scale = 1.0
+shader_parameter/saw_b_scale = 0.821
+shader_parameter/uv_scale = Vector2(3, 8)
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/right = 0.0
+shader_parameter/left = -1.0
+
+[node name="SawTransitionShader" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_glc0v")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
