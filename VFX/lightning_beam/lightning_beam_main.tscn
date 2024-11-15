@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://ptuselfom7or"]
+
+[ext_resource type="Script" path="res://vfx/lightning_beam/lightning_beam_main.gd" id="1_h6bmf"]
+[ext_resource type="Texture2D" uid="uid://cf4qj7ayrx4qc" path="res://assets/textures/shader_texture/godot_icon_color.png" id="1_hh56m"]
+[ext_resource type="PackedScene" uid="uid://dalaqj247dcej" path="res://vfx/lightning_beam/lightning_beam.tscn" id="2_f8t5o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hh56m"]
+radius = 25.0
+
+[node name="LightningBeamMain" type="Node2D"]
+script = ExtResource("1_h6bmf")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(295, 184)
+collision_layer = 2
+collision_mask = 13
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+texture = ExtResource("1_hh56m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource("CircleShape2D_hh56m")
+
+[node name="Enemy2" type="CharacterBody2D" parent="."]
+position = Vector2(217, 154)
+collision_layer = 2
+collision_mask = 13
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy2"]
+texture = ExtResource("1_hh56m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2"]
+shape = SubResource("CircleShape2D_hh56m")
+
+[node name="Enemy3" type="CharacterBody2D" parent="."]
+position = Vector2(326, 72)
+collision_layer = 2
+collision_mask = 13
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy3"]
+texture = ExtResource("1_hh56m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy3"]
+shape = SubResource("CircleShape2D_hh56m")
+
+[node name="Enemy4" type="CharacterBody2D" parent="."]
+position = Vector2(246, 44)
+collision_layer = 2
+collision_mask = 13
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy4"]
+texture = ExtResource("1_hh56m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy4"]
+shape = SubResource("CircleShape2D_hh56m")
+
+[node name="Enemy5" type="CharacterBody2D" parent="."]
+position = Vector2(223, 251)
+collision_layer = 2
+collision_mask = 13
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy5"]
+texture = ExtResource("1_hh56m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy5"]
+shape = SubResource("CircleShape2D_hh56m")
+
+[node name="LightningBeam" parent="." instance=ExtResource("2_f8t5o")]
+position = Vector2(139, 94)
+flashes = 1
+bounce_max = 5

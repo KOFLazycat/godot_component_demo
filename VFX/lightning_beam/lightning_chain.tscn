@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://bok0dohg02e5o"]
+
+[ext_resource type="Script" path="res://vfx/lightning_beam/lightning_chain.gd" id="1_f8u1p"]
+[ext_resource type="Texture2D" uid="uid://bp0howtgf756o" path="res://assets/textures/laser/glowing_circle.png" id="2_sv3kj"]
+
+[sub_resource type="Curve" id="Curve_cu7vk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.498219), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_sr1w0"]
+max_value = 100.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 99.0997), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qysoi"]
+curve = SubResource("Curve_sr1w0")
+
+[sub_resource type="Curve" id="Curve_5kcyq"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kwpqj"]
+curve = SubResource("Curve_5kcyq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ujvna"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 64.0
+initial_velocity_max = 128.0
+angular_velocity_min = 128.0
+angular_velocity_max = 128.0
+gravity = Vector3(0, 0, 0)
+damping_min = 30.0
+damping_max = 60.0
+damping_curve = SubResource("CurveTexture_qysoi")
+scale_min = 0.05
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_kwpqj")
+
+[node name="LightningChain" type="Line2D"]
+width = 6.0
+width_curve = SubResource("Curve_cu7vk")
+default_color = Color(0.301961, 0.65098, 1, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("1_f8u1p")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = false
+collision_mask = 2
+
+[node name="SparkParticles" type="GPUParticles2D" parent="."]
+emitting = false
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 0
+texture = ExtResource("2_sv3kj")
+process_material = SubResource("ParticleProcessMaterial_ujvna")

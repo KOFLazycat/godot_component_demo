@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dalaqj247dcej"]
+
+[ext_resource type="Script" path="res://vfx/lightning_beam/lightning_beam.gd" id="1_68esu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbes5"]
+radius = 200.0
+
+[node name="LightningBeam" type="RayCast2D"]
+target_position = Vector2(500, 0)
+collision_mask = 2
+script = ExtResource("1_68esu")
+
+[node name="BounceArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceArea"]
+shape = SubResource("CircleShape2D_lbes5")
