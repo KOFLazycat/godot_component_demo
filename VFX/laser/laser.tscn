@@ -1,0 +1,129 @@
+[gd_scene load_steps=17 format=3 uid="uid://l8jwdwfukicr"]
+
+[ext_resource type="Script" path="res://vfx/laser/laser.gd" id="1_pdhgw"]
+[ext_resource type="Texture2D" uid="uid://bp0howtgf756o" path="res://assets/textures/laser/glowing_circle.png" id="2_nfyfy"]
+
+[sub_resource type="Curve" id="Curve_w83e5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_m8pxs"]
+curve = SubResource("Curve_w83e5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y2ax1"]
+lifetime_randomness = 0.16
+particle_flag_disable_z = true
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_m8pxs")
+
+[sub_resource type="Gradient" id="Gradient_r5vxc"]
+offsets = PackedFloat32Array(0.603774, 0.690566)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.701961)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vms3q"]
+gradient = SubResource("Gradient_r5vxc")
+
+[sub_resource type="Curve" id="Curve_pl8mi"]
+_data = [Vector2(0.498293, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_g8rmw"]
+curve = SubResource("Curve_pl8mi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wt71q"]
+lifetime_randomness = 0.16
+particle_flag_disable_z = true
+spread = 50.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_g8rmw")
+color_ramp = SubResource("GradientTexture1D_vms3q")
+
+[sub_resource type="Gradient" id="Gradient_6unkq"]
+offsets = PackedFloat32Array(0.618868, 0.74717)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.741176)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_i5ihj"]
+gradient = SubResource("Gradient_6unkq")
+
+[sub_resource type="Curve" id="Curve_kwcaj"]
+_data = [Vector2(0.498293, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qopqd"]
+curve = SubResource("Curve_kwcaj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5jtp7"]
+lifetime_randomness = 0.16
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(60, 20, 1)
+spread = 50.0
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_qopqd")
+color_ramp = SubResource("GradientTexture1D_i5ihj")
+
+[sub_resource type="Environment" id="Environment_d1nay"]
+background_mode = 3
+glow_enabled = true
+glow_levels/2 = 1.0
+glow_levels/4 = 1.0
+glow_blend_mode = 0
+glow_hdr_threshold = 0.5
+glow_hdr_luminance_cap = 2.0
+adjustment_enabled = true
+adjustment_brightness = 0.8
+adjustment_saturation = 1.6
+
+[node name="Laser" type="RayCast2D"]
+target_position = Vector2(0, 0)
+script = ExtResource("1_pdhgw")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 500, 0)
+width = 0.0
+default_color = Color(0.301961, 0.65098, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+sharp_limit = 8.0
+
+[node name="CastingParticles2D" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+emitting = false
+amount = 20
+randomness = 0.14
+texture = ExtResource("2_nfyfy")
+process_material = SubResource("ParticleProcessMaterial_y2ax1")
+
+[node name="CollisionParticles2D" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+emitting = false
+amount = 30
+randomness = 0.14
+texture = ExtResource("2_nfyfy")
+process_material = SubResource("ParticleProcessMaterial_wt71q")
+
+[node name="BeamParticles2D" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+emitting = false
+amount = 20
+lifetime = 0.3
+preprocess = 1.0
+randomness = 1.0
+texture = ExtResource("2_nfyfy")
+process_material = SubResource("ParticleProcessMaterial_5jtp7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d1nay")
