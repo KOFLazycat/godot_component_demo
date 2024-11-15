@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdsmbdqo76ga4"]
+
+[ext_resource type="Texture2D" uid="uid://damae6wqu6g0p" path="res://assets/textures/water_effect/particle.png" id="1_874wj"]
+[ext_resource type="Script" path="res://entities/water/water_effect/stone.gd" id="1_u8pu2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u8pu2"]
+radius = 15.0
+
+[node name="Stone" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_u8pu2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 0.384314)
+scale = Vector2(2, 2)
+texture = ExtResource("1_874wj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u8pu2")

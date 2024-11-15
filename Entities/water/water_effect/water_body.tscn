@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://qwpejg5ulvm0"]
+
+[ext_resource type="Script" path="res://entities/water/water_effect/water_body.gd" id="1_q6kek"]
+[ext_resource type="Shader" path="res://assets/shaders/water_effect.gdshader" id="2_f2ua4"]
+[ext_resource type="Script" path="res://entities/water/water_effect/smooth_path.gd" id="3_gcnmb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rk1we"]
+shader = ExtResource("2_f2ua4")
+shader_parameter/tint = Color(0.341596, 1, 0.916766, 1)
+
+[sub_resource type="Curve2D" id="Curve2D_r0q55"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlbp4"]
+
+[node name="WaterBody" type="Node2D"]
+script = ExtResource("1_q6kek")
+depth = 100.0
+border_thickness = 8.0
+
+[node name="WaterPolygon" type="Polygon2D" parent="."]
+material = SubResource("ShaderMaterial_rk1we")
+
+[node name="WaterBorder" type="Path2D" parent="."]
+curve = SubResource("Curve2D_r0q55")
+script = ExtResource("3_gcnmb")
+spline_length = 10.0
+
+[node name="WaterArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterArea"]
+shape = SubResource("RectangleShape2D_tlbp4")

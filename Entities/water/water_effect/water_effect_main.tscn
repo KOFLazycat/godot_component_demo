@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://w6mmt5bdtfo8"]
+
+[ext_resource type="PackedScene" uid="uid://qwpejg5ulvm0" path="res://entities/water/water_effect/water_body.tscn" id="1_g7gws"]
+[ext_resource type="Script" path="res://entities/water/water_effect/water_effect_main.gd" id="1_q6wgv"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_q6wgv")
+
+[node name="WaterBody" parent="." instance=ExtResource("1_g7gws")]
+position = Vector2(228, 356)
+spring_number = 10

@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://4ad6bv5e26u0"]
+
+[ext_resource type="Script" path="res://entities/water/water_effect/water_particles.gd" id="1_g4c52"]
+[ext_resource type="Texture2D" uid="uid://dy6j12ufmaikv" path="res://assets/textures/water_effect/Water_particle_1.png" id="1_k3niq"]
+
+[sub_resource type="Gradient" id="Gradient_tvf7y"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0.576471)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jnyny"]
+gradient = SubResource("Gradient_tvf7y")
+
+[sub_resource type="Curve" id="Curve_8b13m"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_feuvv"]
+curve = SubResource("Curve_8b13m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7e1de"]
+lifetime_randomness = 0.15
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.21
+direction = Vector3(0, -1, 0)
+spread = 60.0
+initial_velocity_min = 21.13
+initial_velocity_max = 133.8
+gravity = Vector3(0, 0, 0)
+damping_min = 3.521
+damping_max = 10.563
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_feuvv")
+color_ramp = SubResource("GradientTexture1D_jnyny")
+
+[node name="WaterParticles" type="Node2D"]
+script = ExtResource("1_g4c52")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 10
+one_shot = true
+explosiveness = 0.71
+randomness = 0.08
+fixed_fps = 0
+texture = ExtResource("1_k3niq")
+process_material = SubResource("ParticleProcessMaterial_7e1de")
