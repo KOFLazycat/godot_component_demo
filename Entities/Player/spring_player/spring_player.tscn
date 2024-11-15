@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://jupk64wykl4k"]
+
+[ext_resource type="Script" path="res://entities/player/spring_player/spring_player.gd" id="1_fe7vu"]
+[ext_resource type="Texture2D" uid="uid://k6q2pr8budtc" path="res://assets/textures/shader_texture/godot_logo.png" id="2_hx3bt"]
+
+[node name="SpringPlayer" type="Node2D"]
+script = ExtResource("1_fe7vu")
+
+[node name="Sprite2DSwing" type="Sprite2D" parent="."]
+position = Vector2(242, 275)
+texture = ExtResource("2_hx3bt")
+
+[node name="Sprite2DBouncy" type="Sprite2D" parent="."]
+position = Vector2(639, 279)
+texture = ExtResource("2_hx3bt")
