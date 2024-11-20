@@ -30,7 +30,7 @@ vec2 rotate_uv(vec2 uv, vec2 pivot, float rotation) {
     uv -= pivot;
     return vec2(
         cosa * uv.x - sina * uv.y,
-        cosa * uv.y + sina * uv.x 
+        cosa * uv.y + sina * uv.x
     ) + pivot;
 }
 
@@ -38,13 +38,13 @@ vec2 rotate_uv(vec2 uv, vec2 pivot, float rotation) {
 void fragment(){
 	vec2 polar_uv = polar_coordinates(rotate_uv(UV, vec2(0.5), floor(fract(TIME) * animation_speed) ) , vec2(0.5), 0.01, line_count);
 	vec3 lines = texture(noise, polar_uv).rgb;
-	
+
 	float mask_value = length(UV - vec2(0.5));
 	float mask = inv_lerp(mask_size, mask_edge, mask_value);
 	float result = 1.0 - (mask * line_density);
-	
+
 	result = smoothstep(result, result + line_faloff, lines.r);
-	
+
 	COLOR.rgb = vec3(line_color.rgb);
 	COLOR.a = min(line_color.a, result);
 }

@@ -12,19 +12,19 @@ void fragment() {
 	vec2 uv = UV * 2.0 - 1.0;
 	vec2 uv0 = uv;
 	vec3 finalColor = vec3(0.0);
-	
+
 	for (float i = 0.0; i < 4.0; i++) {
 		vec3 col = palette(length(uv0) + i*.4 + TIME*.4);
-		
+
 		uv = fract(uv * 1.5) - 0.5;
-		
+
 		float d = length(uv) * exp(-length(uv0));
 		d = sin(d*8. + TIME)/8.;
 		d = abs(d);
 		d = pow(0.01 / d, 1.2);
-		
+
 		finalColor += col * d;
 	}
-	
+
 	COLOR = vec4(finalColor, 1.0);
 }

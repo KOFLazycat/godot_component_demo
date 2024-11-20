@@ -19,7 +19,7 @@ void fragment( ) {
 	vec2 newp = rotate(UV - vec2(0.5), angle) + vec2(0.5);
 	float a = abs((newp.x - 0.5) * 2.0);
 	newp.x = fract(a + offset * TIME);
-		
+
 	COLOR = texture(TEXTURE, newp);
 	float mask_tex = step(distMod, mask);
 	COLOR.a = COLOR.a * mask_tex;

@@ -17,4 +17,3 @@ func _ready():
 	
 	await tween.finished
 	queue_free()
-
