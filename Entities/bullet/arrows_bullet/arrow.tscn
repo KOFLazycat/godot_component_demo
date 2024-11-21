@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bli2ccmoimtkw"]
 
-[ext_resource type="Texture2D" uid="uid://bwo2nygomdgkn" path="res://Assets/textures/arrows_bullet/arrow.png" id="1_ipmlb"]
-[ext_resource type="Script" path="res://Entities/bullet/arrows_bullet/arrow.gd" id="1_namyf"]
+[ext_resource type="Texture2D" uid="uid://bwo2nygomdgkn" path="res://assets/textures/arrows_bullet/arrow.png" id="1_ipmlb"]
+[ext_resource type="Script" path="res://entities/bullet/arrows_bullet/arrow.gd" id="1_namyf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mv88d"]
 radius = 3.0
