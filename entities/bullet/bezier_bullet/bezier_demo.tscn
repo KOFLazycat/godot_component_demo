@@ -1,8 +1,23 @@
 [gd_scene load_steps=7 format=3 uid="uid://bmp3wia32rgq3"]
 
-[ext_resource type="Script" path="res://entities/bullet/bezier_bullet/bezier_demo.gd" id="1_lbwkm"]
+[ext_resource type="Script" uid="uid://cejyg185n35e2" path="res://entities/bullet/bezier_bullet/bezier_demo.gd" id="1_lbwkm"]
 [ext_resource type="PackedScene" uid="uid://ui01f7klbl8u" path="res://entities/bullet/bezier_bullet/bezier_player.tscn" id="1_o4am7"]
 [ext_resource type="PackedScene" uid="uid://b5ng0lmol3md7" path="res://entities/bullet/bezier_bullet/bezier_enemy.tscn" id="2_djk7d"]
+
+[sub_resource type="Animation" id="Animation_em1yu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BezierEnemy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(760, 80)]
+}
 
 [sub_resource type="Animation" id="Animation_822is"]
 resource_name = "move"
@@ -22,25 +37,10 @@ tracks/0/keys = {
 "values": [Vector2(760, 100), Vector2(760, 400), Vector2(760, 100)]
 }
 
-[sub_resource type="Animation" id="Animation_em1yu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BezierEnemy:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(760, 80)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gfv12"]
 _data = {
-&"move": SubResource("Animation_822is"),
-&"RESET": SubResource("Animation_em1yu")
+&"RESET": SubResource("Animation_em1yu"),
+&"move": SubResource("Animation_822is")
 }
 
 [node name="BezierDemo" type="Node2D"]

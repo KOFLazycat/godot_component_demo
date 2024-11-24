@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bhmmipo58bo18"]
 
-[ext_resource type="Script" uid="uid://chcnungdhcaph" path="res://entities/Player/ant_player/ant_enemy.gd" id="1_j78q4"]
+[ext_resource type="Script" uid="uid://chcnungdhcaph" path="res://entities/player/ant_player/ant_enemy.gd" id="1_j78q4"]
 [ext_resource type="Texture2D" uid="uid://5salnml5tlxh" path="res://assets/textures/ant_player/蚂蚁_1.png" id="2_ibpou"]
 [ext_resource type="Texture2D" uid="uid://chj5qsreiqjn0" path="res://assets/textures/ant_player/蚂蚁_2.png" id="3_uav1d"]
 [ext_resource type="Texture2D" uid="uid://bko2x3ywj464" path="res://assets/textures/ant_player/蚂蚁_3.png" id="4_j4hp8"]
