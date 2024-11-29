@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bepbio6vbclef"]
+
+[ext_resource type="FontFile" uid="uid://c6wydwtikx8v6" path="res://assets/fonts/Round9x13.ttf" id="1_b8w08"]
+[ext_resource type="Script" uid="uid://fp7eumbeotss" path="res://vfx/tween_label/tween_label.gd" id="1_gpv1y"]
+
+[node name="TweenLabel" type="Node2D"]
+script = ExtResource("1_gpv1y")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 365.0
+offset_top = 191.0
+offset_right = 565.0
+offset_bottom = 251.0
+theme_override_fonts/font = ExtResource("1_b8w08")
+theme_override_font_sizes/font_size = 36
+text = "000"
+horizontal_alignment = 1
+vertical_alignment = 1

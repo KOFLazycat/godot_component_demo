@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cjo87ptatiehx"]
 
-[ext_resource type="Script" uid="uid://kh31mpmi4so3" path="res://vfx/fancy_particles/particles.gd" id="1_oprax"]
+[ext_resource type="Script" path="res://vfx/fancy_particles/particles.gd" id="1_oprax"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
