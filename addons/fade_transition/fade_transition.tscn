@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://pojmf4m23i0"]
+
+[ext_resource type="Script" path="res://addons/fade_transition/fade_transition.gd" id="1_4dvqj"]
+
+[node name="FadeTransition" type="ColorRect"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_4dvqj")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://beu3804c1md5t"]
+
+[ext_resource type="Script" uid="uid://bdckn214c3otk" path="res://addons/fade_transition/examples/initially_covered_example/initially_covered_example.gd" id="1_2vbcw"]
+[ext_resource type="PackedScene" uid="uid://pojmf4m23i0" path="res://addons/fade_transition/fade_transition.tscn" id="2_dkkv8"]
+
+[node name="InitiallyCoveredExample" type="Node"]
+script = ExtResource("1_2vbcw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/italics_font_size = 36
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "The FadeTransition is initially invisible and is made visible with the [i]cover_screen()[/i] function. If the \"Initially Covering\" export bool is set to true though, the FadeTransition will start visible.
+
+This is useful if you want to uncover the screen at the start in [i]_ready()[/i], since the screen needs to start visible."
+
+[node name="FadeTransition" parent="." instance=ExtResource("2_dkkv8")]
+initially_covering = true

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://st3gvg10oxae"]
+
+[ext_resource type="Script" uid="uid://bg3i7i8ckx1eq" path="res://addons/fade_transition/examples/toggle_example/toggle_example.gd" id="1_1vh51"]
+[ext_resource type="PackedScene" uid="uid://pojmf4m23i0" path="res://addons/fade_transition/fade_transition.tscn" id="2_6hmlo"]
+
+[node name="ToggleExample" type="Node"]
+script = ExtResource("1_1vh51")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/italics_font_size = 36
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Press the \"ui_accept\" action key (space bar or enter by default) to toggle the transition."
+
+[node name="FadeTransition" parent="." instance=ExtResource("2_6hmlo")]
