@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://jhnmhp4imrmo"]
 
-[ext_resource type="Shader" path="res://assets/shaders/fireworks.gdshader" id="1_m8k8n"]
+[ext_resource type="Shader" uid="uid://cafhss77eosui" path="res://assets/shaders/fireworks.gdshader" id="1_m8k8n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gamnj"]
 shader = ExtResource("1_m8k8n")

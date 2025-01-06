@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://co4gdur6o0f3c"]
+
+[ext_resource type="Script" uid="uid://cr6ac8xbxxinu" path="res://entities/bullet/bullet_impulse/bullet_impulse_main.gd" id="1_1db8n"]
+
+[node name="BulletImpulseMain" type="Node2D"]
+script = ExtResource("1_1db8n")

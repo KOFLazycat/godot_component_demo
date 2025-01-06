@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cicc0ryec5qr"]
 
-[ext_resource type="Shader" path="res://assets/shaders/blackhole.gdshader" id="1_dswen"]
+[ext_resource type="Shader" uid="uid://dqqn8527wjwyu" path="res://assets/shaders/blackhole.gdshader" id="1_dswen"]
 [ext_resource type="Texture2D" uid="uid://bnwkgpmjni4ly" path="res://assets/textures/shader_texture/noise/spreadnoise.png" id="2_fnogm"]
 [ext_resource type="Texture2D" uid="uid://cf4qj7ayrx4qc" path="res://assets/textures/shader_texture/godot_icon_color.png" id="3_mjg8i"]
 [ext_resource type="Texture2D" uid="uid://b2mhbmag0bo35" path="res://assets/textures/shader_texture/godot_icon_parchment.png" id="4_g5l2g"]

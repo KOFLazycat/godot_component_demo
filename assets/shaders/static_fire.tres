@@ -72,7 +72,7 @@ linked_parent_graph_frame = 4
 source = 5
 
 [sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_y65s5"]
-size = Vector2(368, 675)
+size = Vector2(344, 685)
 tint_color_enabled = true
 tint_color = Color(0.629211, 0.892391, 0.953125, 0.75)
 attached_nodes = PackedInt32Array(3, 2)
@@ -195,7 +195,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-928.356, -140.283)
 mode = 1
 flags/unshaded = true
 flags/light_only = false

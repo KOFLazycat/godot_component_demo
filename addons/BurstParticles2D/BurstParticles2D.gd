@@ -438,4 +438,3 @@ func kill():
 	for i in num_particles:
 		if i < arr_rid.size():
 			_kill_particle(i)
-

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctexrn2jhovt3"]
 
-[ext_resource type="Shader" path="res://assets/shaders/rain_and_snow.gdshader" id="1_4n4sj"]
+[ext_resource type="Shader" uid="uid://b7r6eseqigbxk" path="res://assets/shaders/rain_and_snow.gdshader" id="1_4n4sj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_52qdu"]
 shader = ExtResource("1_4n4sj")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4hxliyis0a8k"]
+
+[ext_resource type="Script" uid="uid://b4oucxm8d2kcp" path="res://entities/bullet/bullet_impulse/bullet_impulse.gd" id="1_dyhfc"]
+[ext_resource type="Texture2D" uid="uid://nkci2v1ci4fy" path="res://assets/textures/bullet/shell_case.png" id="2_6la0l"]
+[ext_resource type="Shader" uid="uid://c8th85c80h2nb" path="res://assets/shaders/hit_flash.gdshader" id="2_y0vn7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c714c"]
+resource_local_to_scene = true
+shader = ExtResource("2_y0vn7")
+shader_parameter/active = true
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6la0l"]
+radius = 5.09902
+
+[node name="BulletImpulse" type="RigidBody2D"]
+script = ExtResource("1_dyhfc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_c714c")
+rotation = 1.5708
+texture = ExtResource("2_6la0l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_6la0l")
+
+[node name="FlashTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true

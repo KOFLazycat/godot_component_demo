@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://hj1y675hypr4"]
 
 [ext_resource type="Texture2D" uid="uid://cf4qj7ayrx4qc" path="res://assets/textures/shader_texture/godot_icon_color.png" id="1_ejwk6"]
-[ext_resource type="Shader" path="res://assets/shaders/hit_flash.gdshader" id="1_ihusw"]
+[ext_resource type="Shader" uid="uid://c8th85c80h2nb" path="res://assets/shaders/hit_flash.gdshader" id="1_ihusw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_35myk"]
 shader = ExtResource("1_ihusw")

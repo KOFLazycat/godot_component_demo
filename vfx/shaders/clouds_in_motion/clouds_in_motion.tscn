@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cin53rpv1dymr"]
 
-[ext_resource type="Shader" path="res://assets/shaders/clouds_in_motion.gdshader" id="1_mftcs"]
+[ext_resource type="Shader" uid="uid://ckitemtchm8ga" path="res://assets/shaders/clouds_in_motion.gdshader" id="1_mftcs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1sf3h"]
 shader = ExtResource("1_mftcs")
