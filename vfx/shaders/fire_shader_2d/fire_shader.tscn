@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://q73aykfpxl88"]
+
+[ext_resource type="Shader" uid="uid://b2vuw7v8d0n8b" path="res://assets/shaders/fire_shader.gdshader" id="1_u6um3"]
+
+[sub_resource type="Gradient" id="Gradient_u6um3"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b0w1u"]
+gradient = SubResource("Gradient_u6um3")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_u6um3"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u6um3"]
+seamless = true
+noise = SubResource("FastNoiseLite_u6um3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b0w1u"]
+shader = ExtResource("1_u6um3")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_u6um3")
+shader_parameter/gradient_tex = SubResource("GradientTexture1D_b0w1u")
+shader_parameter/brighter_color = Color(1, 0.8, 0, 1)
+shader_parameter/middle_color = Color(1, 0.56, 0, 1)
+shader_parameter/darker_color = Color(0.64, 0.2, 0.05, 1)
+shader_parameter/spread = 0.5
+
+[node name="FireShader" type="ColorRect"]
+material = SubResource("ShaderMaterial_b0w1u")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

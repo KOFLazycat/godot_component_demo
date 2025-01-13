@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bigk34ruujp1h"]
+
+[ext_resource type="Shader" uid="uid://b8rwo0bdb774l" path="res://assets/shaders/fireball_candle.gdshader" id="1_ap7tk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1q24d"]
+shader = ExtResource("1_ap7tk")
+shader_parameter/fire_color = Color(1, 0.33, 0.068, 1)
+shader_parameter/fire_power_factor = 2.0
+shader_parameter/fire_intensity = 3.0
+shader_parameter/fire_start = 1.0
+shader_parameter/ball_size = 1.0
+shader_parameter/roughness = 0.675
+shader_parameter/detail = 6
+shader_parameter/scale = 4.0
+shader_parameter/lacunarity = 2.0
+
+[node name="FireballCandle" type="ColorRect"]
+material = SubResource("ShaderMaterial_1q24d")
+custom_minimum_size = Vector2(200, 220)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2

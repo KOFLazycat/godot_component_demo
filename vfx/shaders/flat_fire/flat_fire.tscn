@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqcibg4fh7osc"]
+
+[ext_resource type="Shader" uid="uid://dvsi6pumayxuj" path="res://assets/shaders/flat_fire.gdshader" id="1_l2760"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l2760"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l2760"]
+width = 480
+height = 270
+seamless = true
+noise = SubResource("FastNoiseLite_l2760")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nvjge"]
+shader = ExtResource("1_l2760")
+shader_parameter/yoffset = 0.6
+shader_parameter/animation_speed = 0.5
+shader_parameter/flame_color = Color(0.964706, 0.356863, 0.152941, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_l2760")
+
+[node name="FlatFire" type="ColorRect"]
+material = SubResource("ShaderMaterial_nvjge")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
