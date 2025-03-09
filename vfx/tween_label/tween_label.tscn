@@ -7,10 +7,12 @@
 script = ExtResource("1_gpv1y")
 
 [node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(200, 60)
 offset_left = 365.0
 offset_top = 191.0
 offset_right = 565.0
 offset_bottom = 251.0
+pivot_offset = Vector2(100, 30)
 theme_override_fonts/font = ExtResource("1_b8w08")
 theme_override_font_sizes/font_size = 36
 text = "000"
