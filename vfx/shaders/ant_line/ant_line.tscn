@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c4nqfoll4l4ky"]
 
-[ext_resource type="Shader" path="res://assets/shaders/ant_line.gdshader" id="1_1yxpy"]
+[ext_resource type="Shader" uid="uid://b35hj30wpyudh" path="res://assets/shaders/ant_line.gdshader" id="1_1yxpy"]
 [ext_resource type="Texture2D" uid="uid://7xudsfmnnt2p" path="res://assets/textures/shader_texture/dianxain.png" id="1_7va31"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i3kch"]
