@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnptlhutyw12q"]
+
+[ext_resource type="Shader" uid="uid://dghby4v3dcu1t" path="res://assets/shaders/star.gdshader" id="1_0bwtg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_faemv"]
+shader = ExtResource("1_0bwtg")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/alpha = -0.5
+shader_parameter/shney_disperse = 1.0
+shader_parameter/shney_speed = 0.5
+shader_parameter/twist_speed = 1.0
+shader_parameter/rota_speed = 1.0
+shader_parameter/curve_ci = 0.3
+
+[node name="Star" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_faemv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
