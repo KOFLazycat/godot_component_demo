@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://l8jwdwfukicr"]
 
-[ext_resource type="Script" path="res://vfx/laser/laser.gd" id="1_pdhgw"]
+[ext_resource type="Script" uid="uid://bsc43hk5qbw5y" path="res://vfx/laser/laser.gd" id="1_pdhgw"]
 [ext_resource type="Texture2D" uid="uid://bp0howtgf756o" path="res://assets/textures/laser/glowing_circle.png" id="2_nfyfy"]
 
 [sub_resource type="Curve" id="Curve_w83e5"]
@@ -103,26 +103,26 @@ sharp_limit = 8.0
 show_behind_parent = true
 emitting = false
 amount = 20
-randomness = 0.14
 texture = ExtResource("2_nfyfy")
+randomness = 0.14
 process_material = SubResource("ParticleProcessMaterial_y2ax1")
 
 [node name="CollisionParticles2D" type="GPUParticles2D" parent="."]
 show_behind_parent = true
 emitting = false
 amount = 30
-randomness = 0.14
 texture = ExtResource("2_nfyfy")
+randomness = 0.14
 process_material = SubResource("ParticleProcessMaterial_wt71q")
 
 [node name="BeamParticles2D" type="GPUParticles2D" parent="."]
 show_behind_parent = true
 emitting = false
 amount = 20
+texture = ExtResource("2_nfyfy")
 lifetime = 0.3
 preprocess = 1.0
 randomness = 1.0
-texture = ExtResource("2_nfyfy")
 process_material = SubResource("ParticleProcessMaterial_5jtp7")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

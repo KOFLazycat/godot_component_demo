@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dch063htskbhx"]
 
-[ext_resource type="Script" path="res://ui/hud/juicy_bar/juicy_bar.gd" id="1_pxj5w"]
+[ext_resource type="Script" uid="uid://bi5svlrksbxu1" path="res://ui/hud/juicy_bar/juicy_bar.gd" id="1_pxj5w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3u5i3"]
 bg_color = Color(0.791999, 0.791999, 0.791999, 1)

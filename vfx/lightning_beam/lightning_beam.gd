@@ -11,7 +11,7 @@ extends RayCast2D
 var target_point: Vector2 = Vector2.ZERO
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	target_point = to_global(target_position)
 	if is_colliding():
 		target_point = get_collision_point()

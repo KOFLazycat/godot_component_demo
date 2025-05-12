@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpg5ocintkxmg"]
+
+[ext_resource type="Script" uid="uid://bbevxmacy6rnq" path="res://entities/player/top_down_player/top_down_player.gd" id="1_ygjmd"]
+[ext_resource type="Texture2D" uid="uid://cpkt4d7asjjsx" path="res://assets/textures/bomb_player/d1.png" id="2_277ix"]
+[ext_resource type="Texture2D" uid="uid://bwo2nygomdgkn" path="res://assets/textures/arrows_bullet/arrow.png" id="3_k0dsi"]
+[ext_resource type="PackedScene" uid="uid://dvbt0pqwojjq8" path="res://utilities/characters/top_down_character_mover/top_down_character_mover.tscn" id="4_sty2i"]
+[ext_resource type="PackedScene" uid="uid://cmwqpst1aaj22" path="res://common/input/top_down_input.tscn" id="5_3laut"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sty2i"]
+radius = 9.0
+
+[node name="TopDownPlayer" type="CharacterBody2D" groups=["player"]]
+collision_mask = 5
+script = ExtResource("1_ygjmd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sty2i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_277ix")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(9, 0)
+texture = ExtResource("3_k0dsi")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TopDownCharacterMover" parent="." instance=ExtResource("4_sty2i")]
+max_move_speed = 200.0
+acceleration_time = 0.5
+deceleration_time = 0.2
+instantly_turn = true
+
+[node name="TopDownInput" parent="." node_paths=PackedStringArray("character_node") instance=ExtResource("5_3laut")]
+character_node = NodePath("..")

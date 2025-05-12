@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dalaqj247dcej"]
 
-[ext_resource type="Script" path="res://vfx/lightning_beam/lightning_beam.gd" id="1_68esu"]
+[ext_resource type="Script" uid="uid://dbhx4qy5gdbvd" path="res://vfx/lightning_beam/lightning_beam.gd" id="1_68esu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbes5"]
 radius = 200.0

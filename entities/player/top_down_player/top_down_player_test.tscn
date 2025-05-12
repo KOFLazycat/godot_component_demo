@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://bic0g3pktau3w"]
+
+[ext_resource type="PackedScene" uid="uid://cpg5ocintkxmg" path="res://entities/player/top_down_player/top_down_player.tscn" id="1_lqrnb"]
+[ext_resource type="Texture2D" uid="uid://dy6j12ufmaikv" path="res://assets/textures/water_effect/Water_particle_1.png" id="2_x3lfp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p32et"]
+
+[node name="TopDownPlayerTest" type="Node2D"]
+
+[node name="TopDownPlayer" parent="." instance=ExtResource("1_lqrnb")]
+position = Vector2(481, 269)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(377, 176)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_p32et")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("2_x3lfp")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(577, 398)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("CircleShape2D_p32et")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+texture = ExtResource("2_x3lfp")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(600, 148)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("CircleShape2D_p32et")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+texture = ExtResource("2_x3lfp")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(340, 300)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("CircleShape2D_p32et")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
+texture = ExtResource("2_x3lfp")
