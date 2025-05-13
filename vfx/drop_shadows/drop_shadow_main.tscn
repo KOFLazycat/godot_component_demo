@@ -126,6 +126,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_vunra")
 
 [node name="DropShadow" parent="StaticObjects/StaticObject" instance=ExtResource("2_ok6by")]
+shadow_distance = 5.0
 
 [node name="StaticObject2" type="Sprite2D" parent="StaticObjects"]
 self_modulate = Color(1, 0.356863, 0.564706, 1)
@@ -136,6 +137,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_vunra")
 
 [node name="DropShadow" parent="StaticObjects/StaticObject2" instance=ExtResource("2_ok6by")]
+shadow_distance = 10.0
 
 [node name="StaticObject3" type="Sprite2D" parent="StaticObjects"]
 self_modulate = Color(1, 0.356863, 0.564706, 1)
@@ -146,6 +148,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_vunra")
 
 [node name="DropShadow" parent="StaticObjects/StaticObject3" instance=ExtResource("2_ok6by")]
+shadow_distance = 15.0
 
 [node name="Label" type="Label" parent="StaticObjects"]
 offset_left = 21.0
@@ -167,7 +170,9 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_vunra")
 
 [node name="DropShadow" parent="MovingObjects/MovingObject" instance=ExtResource("2_ok6by")]
+process_priority = 1
 is_static = false
+shadow_distance = 10.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MovingObjects/MovingObject"]
 libraries = {
@@ -184,7 +189,9 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_vunra")
 
 [node name="DropShadow" parent="MovingObjects/MovingObject2" instance=ExtResource("2_ok6by")]
+process_priority = 1
 is_static = false
+shadow_distance = 10.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MovingObjects/MovingObject2"]
 libraries = {
@@ -220,6 +227,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_vunra")
 
 [node name="DropShadow" parent="StaticObjectWithAnotherOnTop/Sprite2DBottom" instance=ExtResource("2_ok6by")]
+shadow_distance = 15.0
 
 [node name="Sprite2DTop" type="Sprite2D" parent="StaticObjectWithAnotherOnTop"]
 z_index = 12
@@ -230,6 +238,7 @@ texture = ExtResource("2_vunra")
 
 [node name="DropShadow" parent="StaticObjectWithAnotherOnTop/Sprite2DTop" instance=ExtResource("2_ok6by")]
 is_global = false
+shadow_distance = 5.0
 
 [node name="Label" type="Label" parent="StaticObjectWithAnotherOnTop"]
 offset_left = -315.0
@@ -249,6 +258,7 @@ color = Color(1, 0.498039, 0.603922, 1)
 polygon = PackedVector2Array(0, -42, -43, -13, -52, 15, -27, 52, -14, 38, 37, 67, 37, 45, 82, 42, 75, 11, 44, 18, 58, -33, 30, -23)
 
 [node name="DropShadow" parent="Polygon2DWithShadow/Polygon2D" instance=ExtResource("2_ok6by")]
+shadow_distance = 10.0
 
 [node name="AnimatedSprite2DWithShadow" type="Node2D" parent="."]
 
@@ -260,6 +270,7 @@ sprite_frames = SubResource("SpriteFrames_vunra")
 autoplay = "default"
 
 [node name="DropShadow" parent="AnimatedSprite2DWithShadow/AnimatedSprite2D" instance=ExtResource("2_ok6by")]
+shadow_distance = 5.0
 
 [node name="Label" type="Label" parent="AnimatedSprite2DWithShadow"]
 offset_left = 701.0
