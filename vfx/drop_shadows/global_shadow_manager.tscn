@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://48vbpbuwp3k8"]
+
+[ext_resource type="Script" uid="uid://23rdcm7g4plf" path="res://vfx/drop_shadows/global_shadow_manager.gd" id="1_7eih7"]
+
+[node name="GlobalShadowManager" type="Node2D" groups=["global_drop_shadow_manager"]]
+z_index = 5
+script = ExtResource("1_7eih7")
+shadow_color = Color(0, 0, 0, 0.356863)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]

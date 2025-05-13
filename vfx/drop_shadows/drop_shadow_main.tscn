@@ -1,0 +1,283 @@
+[gd_scene load_steps=15 format=3 uid="uid://c5cbb7yqfj82h"]
+
+[ext_resource type="Texture2D" uid="uid://bpo3ambyq678c" path="res://assets/textures/drop_shadow/white_sq.png" id="1_4cdd1"]
+[ext_resource type="PackedScene" uid="uid://brienshgkpv4h" path="res://vfx/drop_shadows/drop_shadow.tscn" id="2_ok6by"]
+[ext_resource type="Texture2D" uid="uid://dhh54db6sndcs" path="res://assets/textures/drop_shadow/circle_32.png" id="2_vunra"]
+[ext_resource type="Texture2D" uid="uid://c20no755ctylw" path="res://assets/textures/shadow/animation-Sheet.png" id="4_dorn4"]
+
+[sub_resource type="Animation" id="Animation_dorn4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(332, 166)]
+}
+
+[sub_resource type="Animation" id="Animation_vunra"]
+resource_name = "move"
+loop_mode = 2
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(332, 166), Vector2(626, 166)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dorn4"]
+_data = {
+&"RESET": SubResource("Animation_dorn4"),
+&"move": SubResource("Animation_vunra")
+}
+
+[sub_resource type="Animation" id="Animation_remmn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(332, 257)]
+}
+
+[sub_resource type="Animation" id="Animation_0d2jx"]
+resource_name = "move"
+loop_mode = 2
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(332, 257), Vector2(626, 71)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_remmn"]
+_data = {
+&"RESET": SubResource("Animation_remmn"),
+&"move": SubResource("Animation_0d2jx")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dorn4"]
+atlas = ExtResource("4_dorn4")
+region = Rect2(0, 0, 74, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0d2jx"]
+atlas = ExtResource("4_dorn4")
+region = Rect2(74, 0, 74, 83)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vunra"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dorn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0d2jx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dorn4"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DropShadowMain" type="Node2D"]
+
+[node name="Floor" type="Sprite2D" parent="."]
+self_modulate = Color(0.435294, 0.54902, 0.929412, 1)
+position = Vector2(491, 265)
+scale = Vector2(8, 8)
+texture = ExtResource("1_4cdd1")
+
+[node name="StaticObjects" type="Node2D" parent="."]
+
+[node name="StaticObject" type="Sprite2D" parent="StaticObjects"]
+self_modulate = Color(1, 0.356863, 0.564706, 1)
+z_index = 10
+z_as_relative = false
+position = Vector2(332, 71)
+scale = Vector2(2, 2)
+texture = ExtResource("2_vunra")
+
+[node name="DropShadow" parent="StaticObjects/StaticObject" instance=ExtResource("2_ok6by")]
+
+[node name="StaticObject2" type="Sprite2D" parent="StaticObjects"]
+self_modulate = Color(1, 0.356863, 0.564706, 1)
+z_index = 10
+z_as_relative = false
+position = Vector2(485, 71)
+scale = Vector2(2, 2)
+texture = ExtResource("2_vunra")
+
+[node name="DropShadow" parent="StaticObjects/StaticObject2" instance=ExtResource("2_ok6by")]
+
+[node name="StaticObject3" type="Sprite2D" parent="StaticObjects"]
+self_modulate = Color(1, 0.356863, 0.564706, 1)
+z_index = 10
+z_as_relative = false
+position = Vector2(626, 71)
+scale = Vector2(2, 2)
+texture = ExtResource("2_vunra")
+
+[node name="DropShadow" parent="StaticObjects/StaticObject3" instance=ExtResource("2_ok6by")]
+
+[node name="Label" type="Label" parent="StaticObjects"]
+offset_left = 21.0
+offset_top = 39.0
+offset_right = 228.0
+offset_bottom = 99.0
+text = "different shadow distance examples"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MovingObjects" type="Node2D" parent="."]
+
+[node name="MovingObject" type="Sprite2D" parent="MovingObjects"]
+self_modulate = Color(1, 0.356863, 0.564706, 1)
+z_index = 10
+z_as_relative = false
+position = Vector2(332, 166)
+scale = Vector2(2, 2)
+texture = ExtResource("2_vunra")
+
+[node name="DropShadow" parent="MovingObjects/MovingObject" instance=ExtResource("2_ok6by")]
+is_static = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingObjects/MovingObject"]
+libraries = {
+&"": SubResource("AnimationLibrary_dorn4")
+}
+autoplay = "move"
+
+[node name="MovingObject2" type="Sprite2D" parent="MovingObjects"]
+self_modulate = Color(1, 0.356863, 0.564706, 1)
+z_index = 10
+z_as_relative = false
+position = Vector2(332, 257)
+scale = Vector2(2, 2)
+texture = ExtResource("2_vunra")
+
+[node name="DropShadow" parent="MovingObjects/MovingObject2" instance=ExtResource("2_ok6by")]
+is_static = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingObjects/MovingObject2"]
+libraries = {
+&"": SubResource("AnimationLibrary_remmn")
+}
+autoplay = "move"
+
+[node name="Label" type="Label" parent="MovingObjects"]
+offset_left = 21.0
+offset_top = 134.0
+offset_right = 228.0
+offset_bottom = 194.0
+text = "moving objects must have 'is_static' unchecked"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="MovingObjects"]
+offset_left = 589.0
+offset_top = 103.0
+offset_right = 966.0
+offset_bottom = 201.0
+text = "if shadow is delayed on moving objects, go to drop_shadow.tscn and adjust the process priority to be higher"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="StaticObjectWithAnotherOnTop" type="Node2D" parent="."]
+position = Vector2(336, 342)
+
+[node name="Sprite2DBottom" type="Sprite2D" parent="StaticObjectWithAnotherOnTop"]
+self_modulate = Color(0.847059, 0.298039, 0.392157, 1)
+z_index = 10
+scale = Vector2(2, 2)
+texture = ExtResource("2_vunra")
+
+[node name="DropShadow" parent="StaticObjectWithAnotherOnTop/Sprite2DBottom" instance=ExtResource("2_ok6by")]
+
+[node name="Sprite2DTop" type="Sprite2D" parent="StaticObjectWithAnotherOnTop"]
+z_index = 12
+z_as_relative = false
+position = Vector2(-6, -8)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_vunra")
+
+[node name="DropShadow" parent="StaticObjectWithAnotherOnTop/Sprite2DTop" instance=ExtResource("2_ok6by")]
+is_global = false
+
+[node name="Label" type="Label" parent="StaticObjectWithAnotherOnTop"]
+offset_left = -315.0
+offset_top = -53.0
+offset_right = -77.0
+offset_bottom = 48.0
+text = "object casting a shadow on another object with a shadow: uncheck 'is_global' and set z index higher"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Polygon2DWithShadow" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Polygon2DWithShadow"]
+z_index = 10
+position = Vector2(336, 443)
+color = Color(1, 0.498039, 0.603922, 1)
+polygon = PackedVector2Array(0, -42, -43, -13, -52, 15, -27, 52, -14, 38, 37, 67, 37, 45, 82, 42, 75, 11, 44, 18, 58, -33, 30, -23)
+
+[node name="DropShadow" parent="Polygon2DWithShadow/Polygon2D" instance=ExtResource("2_ok6by")]
+
+[node name="AnimatedSprite2DWithShadow" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2DWithShadow"]
+z_index = 10
+z_as_relative = false
+position = Vector2(626, 443)
+sprite_frames = SubResource("SpriteFrames_vunra")
+autoplay = "default"
+
+[node name="DropShadow" parent="AnimatedSprite2DWithShadow/AnimatedSprite2D" instance=ExtResource("2_ok6by")]
+
+[node name="Label" type="Label" parent="AnimatedSprite2DWithShadow"]
+offset_left = 701.0
+offset_top = 402.0
+offset_right = 942.0
+offset_bottom = 451.0
+rotation = 0.00777997
+text = "animated sprite with shadow, requires no extra settings"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="."]
+offset_left = 589.0
+offset_top = 235.0
+offset_right = 942.0
+offset_bottom = 329.0
+text = "NOTE:
+All objects with a drop shadow must have their z index set higher than global_shadow_manager.tscn"
+label_settings = SubResource("LabelSettings_dorn4")
+vertical_alignment = 1
+autowrap_mode = 3

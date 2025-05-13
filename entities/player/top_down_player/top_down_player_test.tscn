@@ -1,9 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bic0g3pktau3w"]
+[gd_scene load_steps=6 format=3 uid="uid://bic0g3pktau3w"]
 
 [ext_resource type="PackedScene" uid="uid://cpg5ocintkxmg" path="res://entities/player/top_down_player/top_down_player.tscn" id="1_lqrnb"]
 [ext_resource type="Texture2D" uid="uid://dy6j12ufmaikv" path="res://assets/textures/water_effect/Water_particle_1.png" id="2_x3lfp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p32et"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3lfp"]
+font_size = 10
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p32et"]
+font_size = 10
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="TopDownPlayerTest" type="Node2D"]
 
@@ -53,3 +63,31 @@ shape = SubResource("CircleShape2D_p32et")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
 texture = ExtResource("2_x3lfp")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 668.0
+offset_top = 268.0
+offset_right = 959.0
+offset_bottom = 399.0
+text = "Example of Top Down Controller for a Player Node
+
+On TopDownCharacterMover try messing with these values:
+max_move_speed
+time_to_reach_max_speed
+time_to_stop_from_max_speed
+turn_speed (with 'instantly_turn' off)"
+label_settings = SubResource("LabelSettings_x3lfp")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 730.0
+offset_top = 117.0
+offset_right = 955.0
+offset_bottom = 190.0
+text = "WASD or arrow keys movement + mouse look
+or 
+left joystick move right joystick turn"
+label_settings = SubResource("LabelSettings_p32et")
+vertical_alignment = 1
+autowrap_mode = 3
