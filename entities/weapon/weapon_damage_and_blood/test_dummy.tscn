@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://ga58d8vk7lmu"]
+
+[ext_resource type="PackedScene" uid="uid://c5sy7c8ijp8k6" path="res://utilities/characters/health_manager/health_manager.tscn" id="1_7qi6e"]
+[ext_resource type="Script" uid="uid://cj8v8mbghuln1" path="res://entities/weapon/weapon_damage_and_blood/test_dummy.gd" id="1_vauem"]
+[ext_resource type="Texture2D" uid="uid://cpkt4d7asjjsx" path="res://assets/textures/bomb_player/d1.png" id="2_lokos"]
+[ext_resource type="PackedScene" uid="uid://bvcafpqx7h01d" path="res://utilities/characters/hit_box/hit_box.tscn" id="3_3k18h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lokos"]
+radius = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3k18h"]
+radius = 25.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lokos"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aytb5"]
+bg_color = Color(0.984513, 0.277314, 0.384997, 1)
+
+[node name="TestDummy" type="CharacterBody2D" groups=["serializable"]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_vauem")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_lokos")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lokos")
+
+[node name="HealthManager" parent="." instance=ExtResource("1_7qi6e")]
+
+[node name="HitBox" parent="." node_paths=PackedStringArray("root_node") instance=ExtResource("3_3k18h")]
+root_node = NodePath("..")
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CircleShape2D_3k18h")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -32.0
+offset_top = 27.0
+offset_right = 28.0
+offset_bottom = 37.0
+theme_override_styles/background = SubResource("StyleBoxFlat_lokos")
+theme_override_styles/fill = SubResource("StyleBoxFlat_aytb5")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[editable path="HitBox"]

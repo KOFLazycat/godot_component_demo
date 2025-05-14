@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://du56fi5r13vlc"]
+
+[ext_resource type="Script" uid="uid://burr8fd18i8ng" path="res://vfx/blood_effects/blood_splatter.gd" id="1_uog0t"]
+[ext_resource type="Texture2D" uid="uid://dw7bf6eisf1ed" path="res://vfx/blood_effects/img/blood_splatters.png" id="2_8oa4o"]
+
+[node name="StaticBloodSplatter" type="Node2D"]
+modulate = Color(0.482353, 0.168627, 0.168627, 1)
+z_index = 200
+z_as_relative = false
+script = ExtResource("1_uog0t")
+blood_dark_color = Color(0.482353, 0.168627, 0.168627, 1)
+blood_light_color = Color(0.588235, 0.164706, 0.215686, 1)
+is_static = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8oa4o")
+hframes = 2
+vframes = 2
