@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4ycy2simb58u"]
+
+[ext_resource type="PackedScene" uid="uid://bwlc8jfb07c6o" path="res://entities/weapon/weapons/weapon.tscn" id="1_es75o"]
+[ext_resource type="Script" uid="uid://bgidrj3qq8apg" path="res://entities/weapon/weapons/gun.gd" id="2_tsf64"]
+[ext_resource type="PackedScene" path="res://effects/muzzle_smoke/muzzle_smoke.tscn" id="3_tan0m"]
+[ext_resource type="PackedScene" path="res://effects/muzzle_flash/muzzle_flash.tscn" id="4_7d7d4"]
+
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tan0m"]
+polygon = PackedVector2Array(-33, -5, 3, -5, 3, 5, -34, 5)
+
+[node name="Gun" instance=ExtResource("1_es75o")]
+script = ExtResource("2_tsf64")
+
+[node name="MuzzleSmoke" parent="." index="2" instance=ExtResource("3_tan0m")]
+
+[node name="MuzzleFlash" parent="." index="3" instance=ExtResource("4_7d7d4")]
+visible = false
+
+[node name="MuzzleFlashOccluder" type="LightOccluder2D" parent="." index="4"]
+occluder = SubResource("OccluderPolygon2D_tan0m")

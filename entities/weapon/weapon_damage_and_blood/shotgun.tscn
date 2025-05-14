@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1r8xo868sopf"]
+
+[ext_resource type="PackedScene" uid="uid://c4ycy2simb58u" path="res://weapons/gun.tscn" id="1_7m31h"]
+[ext_resource type="PackedScene" uid="uid://bssoj3cdymt1b" path="res://weapons/attack_emitters/arc_emitter.tscn" id="2_eam4t"]
+[ext_resource type="PackedScene" uid="uid://bblf0xfbms5ag" path="res://weapons/attack_emitters/raycast_bullet_emitter.tscn" id="3_ewf1g"]
+[ext_resource type="Texture2D" uid="uid://c6b5ihc5jnyoh" path="res://effects/textures/white_sq.png" id="4_ewf1g"]
+
+[node name="Shotgun" instance=ExtResource("1_7m31h")]
+
+[node name="ArcEmitter" parent="AttackEmitter" index="0" instance=ExtResource("2_eam4t")]
+
+[node name="RaycastDamagerEmitter" parent="AttackEmitter/ArcEmitter" index="0" instance=ExtResource("3_ewf1g")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Graphics" index="0"]
+position = Vector2(0, -6)
+scale = Vector2(1, 0.125)
+texture = ExtResource("4_ewf1g")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Graphics" index="1"]
+position = Vector2(0, 6)
+scale = Vector2(1, 0.125)
+texture = ExtResource("4_ewf1g")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Graphics" index="2"]
+position = Vector2(-14, 0)
+rotation = -1.57079
+scale = Vector2(0.430039, 0.315229)
+texture = ExtResource("4_ewf1g")
+
+[node name="MuzzleSmoke" parent="." index="2"]
+position = Vector2(32, 0)
+
+[node name="MuzzleFlash" parent="." index="3"]
+position = Vector2(31, 0)
+
+[node name="MuzzleFlashOccluder" parent="." index="4"]
+position = Vector2(24, 0)

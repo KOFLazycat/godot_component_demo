@@ -1,6 +1,59 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwp4ji0q2hr6"]
+[gd_scene load_steps=6 format=3 uid="uid://cwp4ji0q2hr6"]
 
 [ext_resource type="Script" uid="uid://e8jp7rhamr75" path="res://entities/weapon/weapon_damage_and_blood/weapon_damage_and_blood.gd" id="1_b5xyu"]
+[ext_resource type="Texture2D" uid="uid://bpo3ambyq678c" path="res://assets/textures/drop_shadow/white_sq.png" id="2_6hr2c"]
+[ext_resource type="PackedScene" uid="uid://du56fi5r13vlc" path="res://vfx/blood_effects/static_blood_splatter.tscn" id="3_mb66b"]
+[ext_resource type="PackedScene" uid="uid://ga58d8vk7lmu" path="res://entities/weapon/weapon_damage_and_blood/test_dummy.tscn" id="4_ohq6n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb66b"]
+size = Vector2(83, 372)
 
 [node name="WeaponDamageAndBlood" type="Node2D"]
 script = ExtResource("1_b5xyu")
+
+[node name="Floor" type="Sprite2D" parent="."]
+self_modulate = Color(0.189752, 0.196871, 0.225085, 1)
+position = Vector2(483, 271.5)
+scale = Vector2(16.0938, 9.48438)
+texture = ExtResource("2_6hr2c")
+
+[node name="StaticBlood" type="Node2D" parent="."]
+
+[node name="StaticBloodSplatter" parent="StaticBlood" instance=ExtResource("3_mb66b")]
+position = Vector2(105, 57)
+rotation = 0.408407
+
+[node name="StaticBloodSplatter2" parent="StaticBlood" instance=ExtResource("3_mb66b")]
+position = Vector2(144, 97)
+rotation = -0.570723
+
+[node name="StaticBloodSplatter3" parent="StaticBlood" instance=ExtResource("3_mb66b")]
+position = Vector2(217, 56)
+rotation = 1.63188
+
+[node name="StaticBloodSplatter4" parent="StaticBlood" instance=ExtResource("3_mb66b")]
+position = Vector2(174, 37)
+rotation = -2.69304
+
+[node name="Wall" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
+position = Vector2(687, 213)
+collision_layer = 4
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall/StaticBody2D"]
+position = Vector2(1, 0)
+scale = Vector2(1.15625, 5.5625)
+texture = ExtResource("2_6hr2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_mb66b")
+
+[node name="TestDummy" parent="." instance=ExtResource("4_ohq6n")]
+position = Vector2(508, 184)
+
+[node name="TestDummy2" parent="." instance=ExtResource("4_ohq6n")]
+position = Vector2(516, 328)
+scale = Vector2(-1, 1)

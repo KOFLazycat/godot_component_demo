@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqnokp4q87673"]
+
+[ext_resource type="PackedScene" uid="uid://c4ycy2simb58u" path="res://weapons/gun.tscn" id="1_jf5sx"]
+[ext_resource type="PackedScene" uid="uid://cdqs05dyqu5ld" path="res://weapons/attack_emitters/spray_emitter.tscn" id="2_0fkp6"]
+[ext_resource type="PackedScene" uid="uid://bblf0xfbms5ag" path="res://weapons/attack_emitters/raycast_bullet_emitter.tscn" id="2_p5qp4"]
+[ext_resource type="Texture2D" uid="uid://c6b5ihc5jnyoh" path="res://effects/textures/white_sq.png" id="3_0fkp6"]
+
+[node name="Rifle" instance=ExtResource("1_jf5sx")]
+
+[node name="SprayEmitter" parent="AttackEmitter" index="0" instance=ExtResource("2_0fkp6")]
+
+[node name="RaycastDamagerEmitter" parent="AttackEmitter/SprayEmitter" index="0" instance=ExtResource("2_p5qp4")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Graphics" index="0"]
+position = Vector2(0, 2.98023e-07)
+scale = Vector2(1, 0.15625)
+texture = ExtResource("3_0fkp6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Graphics" index="1"]
+position = Vector2(1, 10)
+rotation = 0.984946
+scale = Vector2(0.380228, 0.235328)
+texture = ExtResource("3_0fkp6")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Graphics" index="2"]
+position = Vector2(-21, 11)
+rotation = 2.03876
+scale = Vector2(0.360024, 0.114718)
+texture = ExtResource("3_0fkp6")
+
+[node name="MuzzleSmoke" parent="." index="2"]
+position = Vector2(33, 0)
+
+[node name="MuzzleFlash" parent="." index="3"]
+position = Vector2(35, 0)
+
+[node name="MuzzleFlashOccluder" parent="." index="4"]
+position = Vector2(28, 0)
