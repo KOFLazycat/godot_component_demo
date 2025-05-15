@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://th8opath4tjb"]
+
+[ext_resource type="PackedScene" uid="uid://xeggsmedqiyg" path="res://common/save_manager/save_load_example/save_load_base_scene.tscn" id="1_glv4b"]
+[ext_resource type="PackedScene" uid="uid://cqnokp4q87673" path="res://entities/weapon/weapon_damage_and_blood_examples/rifle.tscn" id="2_ewymr"]
+[ext_resource type="PackedScene" uid="uid://glvxl7coltw8" path="res://entities/weapon/weapon_damage_and_blood_examples/test_dummy.tscn" id="3_vc0y1"]
+
+[node name="SaveLoadScene1" instance=ExtResource("1_glv4b")]
+
+[node name="Rifle" parent="." index="1" instance=ExtResource("2_ewymr")]
+position = Vector2(138, 443)
+rotation = -0.282991
+
+[node name="Timer" type="Timer" parent="Rifle" index="5"]
+autostart = true
+
+[node name="TestDummy" parent="." index="2" instance=ExtResource("3_vc0y1")]
+position = Vector2(580, 312)
+
+[connection signal="timeout" from="Rifle/Timer" to="Rifle" method="attack"]

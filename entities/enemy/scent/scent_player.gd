@@ -13,7 +13,7 @@ func _ready() -> void:
 	timer.start()
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction: Vector2 = get_movement_vector()
 	velocity = direction * SPEED
 	move_and_slide()

@@ -122,8 +122,9 @@ func _spawn_blood(pos_offset: Vector2 = Vector2.ZERO, play_splatter_sound: bool 
 	@param play_splatter_sound: 是否播放血滴飞溅音效
 	"""
 	var blood_splatter: BloodSplatter = blood_splatter_scene.instantiate()
-	get_tree().get_root().add_child(blood_splatter)
+	# 需要在add_child之前使用add_to_group，否则BloodSplatter的_onready函数就不能正确把blood_splatter加入到serializable组中
 	blood_splatter.add_to_group("instanced")
+	get_tree().get_root().add_child(blood_splatter)
 
 	var goal_pos: Vector2 = global_position + pos_offset
 	

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjww0bp6ltb24"]
+
+[ext_resource type="PackedScene" uid="uid://xeggsmedqiyg" path="res://example_scenes/save_load_example/save_load_base_scene.tscn" id="1_jhnsy"]
+
+[node name="SaveLoadScene1" instance=ExtResource("1_jhnsy")]
+
+[node name="SceneName" parent="UI" index="3"]
+text = "SCENE 2"
