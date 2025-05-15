@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://bj10m5g8gflmf"]
+
+[ext_resource type="Script" uid="uid://c1vjfmt3cxjqu" path="res://vfx/blood_effects/blood_cloud.gd" id="1_f2xu4"]
+[ext_resource type="Texture2D" uid="uid://c3sfjd7mdu8lw" path="res://assets/textures/drop_shadow/blob_sprite_sheet.png" id="1_obtwa"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3ujoo"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_6sou8"]
+_data = [Vector2(0.386318, 0.811236), 0.0, 0.0, 0, 0, Vector2(1, 0.010934), -1.9341, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_e15eo"]
+curve = SubResource("Curve_6sou8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_op0la"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 60.0
+angle_max = 720.0
+gravity = Vector3(0, 0, 0)
+scale_max = 1.5
+color = Color(0.729412, 0.290196, 0.282353, 0.266667)
+alpha_curve = SubResource("CurveTexture_e15eo")
+anim_offset_max = 1.0
+
+[node name="BloodCloudEffect" type="Node2D" groups=["instanced"]]
+z_index = 600
+z_as_relative = false
+script = ExtResource("1_f2xu4")
+effect_duration = 4.0
+
+[node name="DeleteTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="BloodCloudParticles" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_3ujoo")
+emitting = false
+amount = 3
+texture = ExtResource("1_obtwa")
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(-300, -300, 600, 600)
+process_material = SubResource("ParticleProcessMaterial_op0la")

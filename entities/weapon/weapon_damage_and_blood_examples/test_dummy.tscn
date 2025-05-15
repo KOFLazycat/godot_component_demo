@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://glvxl7coltw8"]
+
+[ext_resource type="Texture2D" uid="uid://csiitebvhauwa" path="res://assets/textures/drop_shadow/white_circle.png" id="1_gtwjl"]
+[ext_resource type="Script" uid="uid://ccvj1dr70hkup" path="res://entities/weapon/weapon_damage_and_blood_examples/test_dummy.gd" id="1_vrh7j"]
+[ext_resource type="PackedScene" uid="uid://bvcafpqx7h01d" path="res://utilities/characters/hit_box/hit_box.tscn" id="2_s0ftr"]
+[ext_resource type="PackedScene" uid="uid://c5sy7c8ijp8k6" path="res://utilities/characters/health_manager/health_manager.tscn" id="3_ieret"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s0ftr"]
+radius = 31.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ieret"]
+radius = 31.0644
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ieret"]
+bg_color = Color(0.531146, 1.52213e-06, 4.33177e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrh7j"]
+bg_color = Color(0, 1, 0, 1)
+
+[node name="TestDummy" type="CharacterBody2D" groups=["serializable"]]
+z_index = 10
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_vrh7j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gtwjl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s0ftr")
+
+[node name="HealthManager" parent="." instance=ExtResource("3_ieret")]
+max_health = 10
+
+[node name="HitBox" parent="." instance=ExtResource("2_s0ftr")]
+collision_layer = 16
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CircleShape2D_ieret")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -38.0
+offset_top = 44.0
+offset_right = 39.0
+offset_bottom = 71.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ieret")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vrh7j")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[connection signal="hitbox_hurt" from="HitBox" to="HealthManager" method="hurt"]
+
+[editable path="HitBox"]

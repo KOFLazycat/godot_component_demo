@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvxpmbrpufurf"]
+
+[ext_resource type="Script" uid="uid://burr8fd18i8ng" path="res://vfx/blood_effects/blood_splatter.gd" id="1_rubwu"]
+[ext_resource type="Texture2D" uid="uid://dv0cyei5t3un2" path="res://vfx/blood_effects/blood_splatters.png" id="2_e5mij"]
+[ext_resource type="Script" uid="uid://cg17j0tvyfmwn" path="res://utilities/sfx/play_random_sound.gd" id="3_37y5i"]
+[ext_resource type="AudioStream" uid="uid://f7gi1bntvxf8" path="res://vfx/blood_effects/sfx/splash4.wav" id="4_wd8ni"]
+[ext_resource type="AudioStream" uid="uid://863qnm7f6lre" path="res://vfx/blood_effects/sfx/splash3.wav" id="5_0og8n"]
+[ext_resource type="AudioStream" uid="uid://dcbbu5lalp6wg" path="res://vfx/blood_effects/sfx/splash2.wav" id="6_6uxwl"]
+
+[node name="BloodSplatter" type="Node2D"]
+modulate = Color(0.482353, 0.168627, 0.168627, 1)
+script = ExtResource("1_rubwu")
+blood_dark_color = Color(0.482353, 0.168627, 0.168627, 1)
+blood_light_color = Color(0.588235, 0.164706, 0.215686, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_e5mij")
+hframes = 2
+vframes = 2
+
+[node name="SplatterSounds" type="Node2D" parent="."]
+script = ExtResource("3_37y5i")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SplatterSounds"]
+stream = ExtResource("4_wd8ni")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SplatterSounds"]
+stream = ExtResource("5_0og8n")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SplatterSounds"]
+stream = ExtResource("6_6uxwl")

@@ -1,67 +1,68 @@
 class_name PlayRandomSound
 extends Node
-## 随机音频播放控制器，支持从子音频节点中随机播放
 
-## 是否在场景就绪时自动播放（导出属性）
+"""
+随机音效播放节点
+功能：
+- 自动收集所有子节点中的音频播放器（AudioStreamPlayer及其子类）
+- 支持随机播放、停止播放和检查播放状态
+- 可配置在节点就绪时自动播放
+
+使用说明：
+1. 将AudioStreamPlayer/AudioStreamPlayer2D/AudioStreamPlayer3D作为子节点添加
+2. 通过play_on_ready控制是否在就绪时自动播放
+"""
+
+# 是否在节点就绪时自动播放音效（可在编辑器中配置）
 @export var play_on_ready: bool = false
 
-## 音频播放器节点池（自动初始化）
-var audio_players: Array[AudioStreamPlayer2D] = []
+# 存储所有音频播放器子节点（仅包含AudioStreamPlayer及其子类）
+var audio_players: Array = []
 
-func _ready() -> void:
-	# 初始化时收集所有子音频播放器节点
-	_initialize_audio_players()
-	
-	# 根据设置自动播放
+
+func _ready():
+	_collect_audio_players()  # 收集所有音频播放器子节点
 	if play_on_ready:
-		play()
+		play()  # 触发自动播放
 
 
-## 初始化音频播放器集合
-func _initialize_audio_players() -> void:
+func _collect_audio_players():
+	"""
+	私有方法：遍历子节点并收集所有AudioStreamPlayer及其子类
+	会清空现有列表并重新填充
+	"""
+	audio_players.clear()
 	for child in get_children():
-		# 统一识别所有类型的音频播放器（包括2D/3D变体）
-		if child is AudioStreamPlayer2D:
+		if child is AudioStreamPlayer or child is AudioStreamPlayer2D or child is AudioStreamPlayer3D:
 			audio_players.append(child)
 	
-	# 可选：打乱数组实现更均匀的随机分布
-	audio_players.shuffle()
+	# 空列表提示（辅助调试）
+	if audio_players.is_empty():
+		push_warning("PlayRandomSound节点下未找到任何音频播放器子节点！")
 
 
-## 随机播放一个音频（自动跳过无效实例）
-func play() -> void:
-	var player: AudioStreamPlayer2D = _get_valid_random_player()
-	if player != null:
-		player.play()
+func play():
+	"""
+	随机播放一个音频播放器（若存在）
+	播放前会自动检查列表有效性
+	"""
+	if audio_players.is_empty():
+		return  # 空列表直接返回（已有警告，无需重复提示）
+	
+	# 生成随机索引（范围：0到列表长度-1）
+	var random_index: int = randi_range(0, audio_players.size() - 1)
+	audio_players[random_index].play()  # 调用播放接口
 
 
-## 停止所有音频播放
-func stop() -> void:
-	for player: AudioStreamPlayer2D in audio_players:
-		if is_instance_valid(player) and player.playing:
-			player.stop()
+func stop():
+	"""停止所有音频播放器的播放"""
+	for player in audio_players:
+		player.stop()
 
 
-## 检查是否有正在播放的音频
-func is_playing() -> bool:
-	for player: AudioStreamPlayer2D in audio_players:
-		if is_instance_valid(player) and player.playing:
+func is_playing():
+	"""检查是否有任意音频播放器正在播放"""
+	for player in audio_players:
+		if player.playing:
 			return true
 	return false
-
-
-## 获取一个有效的随机播放器（核心逻辑）
-func _get_valid_random_player() -> AudioStreamPlayer2D:
-	# 安全防护：空数组直接返回
-	if audio_players.is_empty():
-		push_warning("No valid audio players available")
-		return null
-	
-	# 筛选有效播放器
-	var valid_players:Array[AudioStreamPlayer2D] = audio_players.filter(func(p): return is_instance_valid(p))
-	if valid_players.is_empty():
-		return null
-	
-	# 生成随机索引（避免size-1的手动计算）
-	var random_index: int = randi() % valid_players.size()
-	return valid_players[random_index]

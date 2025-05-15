@@ -1,0 +1,97 @@
+[gd_scene load_steps=14 format=3 uid="uid://b1wp7qlprr2jm"]
+
+[ext_resource type="Texture2D" uid="uid://c3sfjd7mdu8lw" path="res://assets/textures/drop_shadow/blob_sprite_sheet.png" id="1_6xxyx"]
+[ext_resource type="Script" uid="uid://bhacnmgdsg65f" path="res://vfx/bullet_hit_effect/bullet_hit_effect.gd" id="1_321mn"]
+[ext_resource type="Texture2D" uid="uid://badnlplp8sgu7" path="res://assets/textures/drop_shadow/circle_16.png" id="2_xnyd0"]
+[ext_resource type="Script" uid="uid://cg17j0tvyfmwn" path="res://utilities/sfx/play_random_sound.gd" id="3_fwa1w"]
+[ext_resource type="AudioStream" uid="uid://cvgbdbk5t73vr" path="res://vfx/bullet_hit_effect/sfx/pc_bullet_impact_wall_01.wav" id="4_w8hmv"]
+[ext_resource type="AudioStream" uid="uid://djajb1g78sgru" path="res://vfx/bullet_hit_effect/sfx/pc_bullet_impact_wall_02.wav" id="5_x2sr0"]
+[ext_resource type="AudioStream" uid="uid://bb78qcm606vvx" path="res://vfx/bullet_hit_effect/sfx/pc_bullet_impact_wall_03.wav" id="6_acot4"]
+[ext_resource type="AudioStream" uid="uid://mxghs8elhagg" path="res://vfx/bullet_hit_effect/sfx/pc_bullet_impact_wall_04.wav" id="7_auxbu"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3ujoo"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_mtxjt"]
+_data = [Vector2(0.204633, 0.86082), 0.0, 0.0, 0, 0, Vector2(1, 0.010934), -1.9341, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bxjtk"]
+curve = SubResource("Curve_mtxjt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pymng"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 14.3
+angle_max = 720.0
+gravity = Vector3(0, -5, 0)
+scale_min = 0.6
+scale_max = 0.85
+color = Color(0.866667, 0.866667, 0.866667, 0.796078)
+alpha_curve = SubResource("CurveTexture_bxjtk")
+anim_offset_max = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r3mit"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 42.7
+initial_velocity_max = 42.7
+gravity = Vector3(0, 10.79, 0)
+scale_min = 0.1
+scale_max = 0.3
+color = Color(0.980392, 0.917647, 0.670588, 1)
+
+[node name="BulletHitEffect" type="Node2D" groups=["instanced"]]
+z_index = 5
+z_as_relative = false
+script = ExtResource("1_321mn")
+
+[node name="DeleteTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="SmokeParticles" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_3ujoo")
+emitting = false
+amount = 5
+texture = ExtResource("1_6xxyx")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_pymng")
+
+[node name="SparkParticles" type="GPUParticles2D" parent="."]
+texture = ExtResource("2_xnyd0")
+lifetime = 2.0
+one_shot = true
+speed_scale = 8.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_r3mit")
+
+[node name="ImpactSounds" type="Node2D" parent="."]
+script = ExtResource("3_fwa1w")
+play_on_ready = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ImpactSounds"]
+stream = ExtResource("4_w8hmv")
+volume_db = -3.0
+attenuation = 2.21914
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="ImpactSounds"]
+stream = ExtResource("5_x2sr0")
+volume_db = -3.0
+attenuation = 2.21914
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="ImpactSounds"]
+stream = ExtResource("6_acot4")
+volume_db = -3.0
+attenuation = 2.21914
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="ImpactSounds"]
+stream = ExtResource("7_auxbu")
+volume_db = -3.0
+attenuation = 2.21914

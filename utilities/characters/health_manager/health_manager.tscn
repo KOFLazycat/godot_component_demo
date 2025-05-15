@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5sy7c8ijp8k6"]
+
+[ext_resource type="Script" uid="uid://bss7qa6y8e7br" path="res://utilities/characters/health_manager/health_manager.gd" id="1_8gwu3"]
+[ext_resource type="PackedScene" uid="uid://cred0e1bl545e" path="res://vfx/blood_effects/blood_spawner.tscn" id="2_be8fl"]
+
+[node name="HealthManager" type="Node2D"]
+script = ExtResource("1_8gwu3")
+
+[node name="BloodSpawner" parent="." instance=ExtResource("2_be8fl")]
+max_splatter_dist = 150.0
+blood_spray_arc = 60.0
