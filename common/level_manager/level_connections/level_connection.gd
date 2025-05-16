@@ -13,7 +13,6 @@ func _ready():
 	body_entered.connect(on_body_enter)
 
 func on_body_enter(body: PhysicsBody2D):
-	prints(111)
 	if body.is_in_group("player"):
 		load_connected_level()
 

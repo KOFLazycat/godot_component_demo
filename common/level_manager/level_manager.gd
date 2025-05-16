@@ -4,9 +4,9 @@ extends Node
 ## Put paths to levels in your game in LEVEL_LIST
 
 var LEVEL_LIST = [
-	"res://example_scenes/level_transitions_examples/test_level_1.tscn",
-	"res://example_scenes/level_transitions_examples/test_level_2.tscn",
-	"res://example_scenes/level_transitions_examples/test_level_3.tscn",
+	"res://entities/world/level_transitions_examples/test_level_1.tscn",
+	"res://entities/world/level_transitions_examples/test_level_2.tscn",
+	"res://entities/world/level_transitions_examples/test_level_3.tscn",
 ]
 
 var LEVEL_NAME_TO_LEVEL_PATH = {}

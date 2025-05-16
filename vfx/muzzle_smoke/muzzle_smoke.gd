@@ -30,7 +30,7 @@ func _ready() -> void:
 	_initialize_particles()
 
 	# 连接计时器超时信号（显式指定连接模式）
-	smoke_timer.timeout.connect(_on_smoke_timer_timeout, CONNECT_ONE_SHOT)
+	smoke_timer.timeout.connect(_on_smoke_timer_timeout)
 
 
 func start_smoke() -> void:
@@ -55,7 +55,7 @@ func _on_smoke_timer_timeout() -> void:
 func _initialize_particles() -> void:
 	"""初始化粒子基础状态"""
 	gpu_particles.emitting = false  # 初始不发射
-	gpu_particles.add_to_group("smoke_particles")  # 加入组便于全局管理
+	gpu_particles.add_to_group("instanced")  # 加入组便于全局管理
 	# 预重父到根节点（确保初始状态正确）
 	gpu_particles.reparent.bind(get_tree().get_root()).call_deferred()
 

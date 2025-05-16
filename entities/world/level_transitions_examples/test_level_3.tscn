@@ -8,14 +8,16 @@
 [node name="LevelConnector" parent="." index="0" instance=ExtResource("2_8xgxx")]
 position = Vector2(-791, 165)
 rotation = 3.14159
-collision_mask = 32
+collision_layer = 32
+collision_mask = 1
 level_to_load = "test_level_2"
 connection_name = "2_to_3"
 
 [node name="LevelConnector2" parent="." index="1" instance=ExtResource("2_8xgxx")]
 position = Vector2(-78, -590)
 rotation = 3.14159
-collision_mask = 32
+collision_layer = 32
+collision_mask = 1
 level_to_load = "test_level_1"
 connection_name = "3_to_1_secret"
 
