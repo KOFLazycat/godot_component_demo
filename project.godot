@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 
 DamageNumber="*res://common/global/damage_number/damage_number.gd"
 SaveManager="*res://common/save_manager/save_manager.gd"
+LevelManager="*res://common/level_manager/level_manager.tscn"
 
 [display]
 
@@ -128,6 +129,7 @@ quickload={
 2d_physics/layer_3="Wall"
 2d_physics/layer_4="Bullet"
 2d_physics/layer_5="Hitbox"
+2d_physics/layer_6="Level"
 
 [rendering]
 

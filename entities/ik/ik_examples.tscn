@@ -1,0 +1,321 @@
+[gd_scene load_steps=12 format=3 uid="uid://cuw1jhj03owkt"]
+
+[ext_resource type="Texture2D" uid="uid://bpo3ambyq678c" path="res://assets/textures/drop_shadow/white_sq.png" id="1_7us5p"]
+[ext_resource type="Script" uid="uid://bufhfh0sl6gtk" path="res://utilities/characters/two_joint_ik/TwoJointIK.gd" id="1_8q7bw"]
+[ext_resource type="Texture2D" uid="uid://badnlplp8sgu7" path="res://assets/textures/drop_shadow/circle_16.png" id="3_5hj82"]
+[ext_resource type="PackedScene" uid="uid://dfqg6528a24pv" path="res://utilities/characters/procedurally_animated_stepper/procedurally_animated_stepper.tscn" id="4_6stno"]
+
+[sub_resource type="Animation" id="Animation_5hj82"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IKTarget:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(66, -24)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IKTarget:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.119858]
+}
+
+[sub_resource type="Animation" id="Animation_8q7bw"]
+resource_name = "move"
+length = 5.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IKTarget:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.4, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(66, -24), Vector2(62, 40), Vector2(5, 0), Vector2(200, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IKTarget:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.4, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.119858, -1.13508, 0.0, -0.695183]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5hj82"]
+_data = {
+&"RESET": SubResource("Animation_5hj82"),
+&"move": SubResource("Animation_8q7bw")
+}
+
+[sub_resource type="Animation" id="Animation_6fpcb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_6stno"]
+resource_name = "move"
+length = 10.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 2.7, 4, 5, 7, 7.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 422), Vector2(0, 422), Vector2(270, 423), Vector2(272, 402), Vector2(302, 3.99998), Vector2(125, -108)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 3, 4, 5, 7, 7.9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -1.54642, -1.54642, -3.09255, -3.49172, -4.65568, -6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6fpcb"]
+_data = {
+&"RESET": SubResource("Animation_6fpcb"),
+&"move": SubResource("Animation_6stno")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6stno"]
+size = Vector2(64, 64)
+
+[node name="IKExamples" type="Node2D"]
+
+[node name="BaseIKExample" type="Node2D" parent="."]
+position = Vector2(91, 155)
+
+[node name="TwoJointIK" type="Node2D" parent="BaseIKExample" node_paths=PackedStringArray("target_node")]
+rotation = 0.507833
+script = ExtResource("1_8q7bw")
+target_node = NodePath("../IKTarget")
+update_ik_in_editor = true
+
+[node name="Sprite2D" type="Sprite2D" parent="BaseIKExample/TwoJointIK"]
+position = Vector2(27, 1.78814e-07)
+scale = Vector2(1, 0.15625)
+texture = ExtResource("1_7us5p")
+
+[node name="MiddleJoint" type="Node2D" parent="BaseIKExample/TwoJointIK"]
+position = Vector2(56, 0)
+rotation = -1.75706
+
+[node name="Sprite2D" type="Sprite2D" parent="BaseIKExample/TwoJointIK/MiddleJoint"]
+position = Vector2(27, 1.78814e-07)
+scale = Vector2(1, 0.15625)
+texture = ExtResource("1_7us5p")
+
+[node name="EndJoint" type="Node2D" parent="BaseIKExample/TwoJointIK/MiddleJoint"]
+position = Vector2(54, 0)
+rotation = 1.36908
+
+[node name="Sprite2D" type="Sprite2D" parent="BaseIKExample/TwoJointIK/MiddleJoint/EndJoint"]
+position = Vector2(9, 0)
+scale = Vector2(0.40625, 0.40625)
+texture = ExtResource("1_7us5p")
+
+[node name="IKTarget" type="Marker2D" parent="BaseIKExample"]
+position = Vector2(66, -24)
+rotation = 0.119858
+
+[node name="Sprite2D" type="Sprite2D" parent="BaseIKExample/IKTarget"]
+modulate = Color(1, 0.345098, 0.211765, 1)
+texture = ExtResource("3_5hj82")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BaseIKExample/IKTarget"]
+modulate = Color(1, 0.345098, 0.211765, 1)
+position = Vector2(6.96, 0)
+scale = Vector2(0.3, 0.1)
+texture = ExtResource("1_7us5p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BaseIKExample"]
+libraries = {
+&"": SubResource("AnimationLibrary_5hj82")
+}
+autoplay = "move"
+
+[node name="Label" type="Label" parent="BaseIKExample"]
+offset_left = -18.0
+offset_top = -146.0
+offset_right = 269.0
+offset_bottom = -45.0
+text = "Basic Two Joint IK
+Requires child nodes MiddleJoint and
+MiddleJoint/EndJoint
+also a target node has to be set"
+
+[node name="ProcAnimStepperExample" type="Node2D" parent="."]
+position = Vector2(511, 64)
+
+[node name="Creature" type="Node2D" parent="ProcAnimStepperExample"]
+
+[node name="IkFootTargetManagerRight" parent="ProcAnimStepperExample/Creature" node_paths=PackedStringArray("other_step_manager", "wall_check_raycaster") instance=ExtResource("4_6stno")]
+position = Vector2(96.3717, 39.8606)
+rotation = 0.0343633
+scale = Vector2(0.856464, 1.58905)
+other_step_manager = NodePath("../IkFootTargetManagerLeft")
+wall_check_raycaster = NodePath("../WallRayCast2D")
+post_step_delay = 0.1
+
+[node name="IkFootTargetManagerLeft" parent="ProcAnimStepperExample/Creature" node_paths=PackedStringArray("other_step_manager", "wall_check_raycaster") instance=ExtResource("4_6stno")]
+position = Vector2(-97.4517, 48.0201)
+rotation = -0.0778897
+scale = Vector2(0.80532, 1.46493)
+other_step_manager = NodePath("../IkFootTargetManagerRight")
+wall_check_raycaster = NodePath("../WallRayCast2D")
+post_step_delay = 0.1
+
+[node name="FootTargetMarker" parent="ProcAnimStepperExample/Creature/IkFootTargetManagerLeft" index="0"]
+rotation = 3.14159
+
+[node name="WallRayCast2D" type="RayCast2D" parent="ProcAnimStepperExample/Creature"]
+
+[node name="Body" type="Sprite2D" parent="ProcAnimStepperExample/Creature"]
+scale = Vector2(1.5, 1.40625)
+texture = ExtResource("1_7us5p")
+
+[node name="LegLeft" type="Node2D" parent="ProcAnimStepperExample/Creature" node_paths=PackedStringArray("target_node")]
+position = Vector2(-39, 9)
+rotation = -2.87419
+script = ExtResource("1_8q7bw")
+target_node = NodePath("../IkFootTargetManagerLeft/FootTargetMarker")
+update_ik_in_editor = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ProcAnimStepperExample/Creature/LegLeft"]
+position = Vector2(27, 1.78814e-07)
+scale = Vector2(1, 0.15625)
+texture = ExtResource("1_7us5p")
+
+[node name="MiddleJoint" type="Node2D" parent="ProcAnimStepperExample/Creature/LegLeft"]
+position = Vector2(56, 0)
+rotation = -1.75585
+
+[node name="Sprite2D" type="Sprite2D" parent="ProcAnimStepperExample/Creature/LegLeft/MiddleJoint"]
+position = Vector2(27, 1.78814e-07)
+scale = Vector2(1, 0.15625)
+texture = ExtResource("1_7us5p")
+
+[node name="EndJoint" type="Node2D" parent="ProcAnimStepperExample/Creature/LegLeft/MiddleJoint"]
+position = Vector2(54, 0)
+rotation = 1.41055
+
+[node name="Sprite2D" type="Sprite2D" parent="ProcAnimStepperExample/Creature/LegLeft/MiddleJoint/EndJoint"]
+position = Vector2(9, 0)
+scale = Vector2(0.40625, 0.40625)
+texture = ExtResource("1_7us5p")
+
+[node name="LegRight" type="Node2D" parent="ProcAnimStepperExample/Creature" node_paths=PackedStringArray("target_node")]
+position = Vector2(41, 6)
+rotation = -0.366187
+script = ExtResource("1_8q7bw")
+target_node = NodePath("../IkFootTargetManagerRight/FootTargetMarker")
+middle_joint_flipped = false
+update_ik_in_editor = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ProcAnimStepperExample/Creature/LegRight"]
+position = Vector2(27, 1.78814e-07)
+scale = Vector2(1, 0.15625)
+texture = ExtResource("1_7us5p")
+
+[node name="MiddleJoint" type="Node2D" parent="ProcAnimStepperExample/Creature/LegRight"]
+position = Vector2(56, 0)
+rotation = 1.87983
+
+[node name="Sprite2D" type="Sprite2D" parent="ProcAnimStepperExample/Creature/LegRight/MiddleJoint"]
+position = Vector2(27, 1.78814e-07)
+scale = Vector2(1, 0.15625)
+texture = ExtResource("1_7us5p")
+
+[node name="EndJoint" type="Node2D" parent="ProcAnimStepperExample/Creature/LegRight/MiddleJoint"]
+position = Vector2(54, 0)
+rotation = -1.47928
+
+[node name="Sprite2D" type="Sprite2D" parent="ProcAnimStepperExample/Creature/LegRight/MiddleJoint/EndJoint"]
+position = Vector2(9, 0)
+scale = Vector2(0.40625, 0.40625)
+texture = ExtResource("1_7us5p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ProcAnimStepperExample/Creature"]
+libraries = {
+&"": SubResource("AnimationLibrary_6fpcb")
+}
+autoplay = "move"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ProcAnimStepperExample"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(108, 218)
+scale = Vector2(1.4074, 4.38643)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProcAnimStepperExample/StaticBody2D"]
+shape = SubResource("RectangleShape2D_6stno")
+
+[node name="Sprite2D" type="Sprite2D" parent="ProcAnimStepperExample/StaticBody2D"]
+texture = ExtResource("1_7us5p")
+
+[node name="Label" type="Label" parent="ProcAnimStepperExample"]
+offset_left = -36.0
+offset_top = -218.0
+offset_right = 206.0
+offset_bottom = -195.0
+text = "Procedurally Animated Stepper"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(407, 236)
+zoom = Vector2(0.5, 0.5)
+
+[editable path="ProcAnimStepperExample/Creature/IkFootTargetManagerRight"]
+[editable path="ProcAnimStepperExample/Creature/IkFootTargetManagerLeft"]

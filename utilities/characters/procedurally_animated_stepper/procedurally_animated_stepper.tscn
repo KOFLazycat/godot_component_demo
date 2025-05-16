@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfqg6528a24pv"]
+
+[ext_resource type="Script" uid="uid://cwgr5log1t7xc" path="res://utilities/characters/procedurally_animated_stepper/procedurally_animated_stepper.gd" id="1_0wttw"]
+[ext_resource type="Texture2D" uid="uid://bpo3ambyq678c" path="res://assets/textures/drop_shadow/white_sq.png" id="1_h7jd5"]
+
+
+[node name="IkFootTargetManager" type="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0.368627)
+position = Vector2(1.90735e-06, 0)
+scale = Vector2(1.625, 2.40625)
+texture = ExtResource("1_h7jd5")
+script = ExtResource("1_0wttw")
+
+[node name="FootTargetMarker" type="Node2D" parent="."]
