@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="OvaniSong" load_steps=7 format=3 uid="uid://6l1o0utgck3e"]
+
+[ext_resource type="Script" uid="uid://b731simjwosad" path="res://utilities/music/OvaniPlugin/OvaniSong.gd" id="1_bbe68"]
+[ext_resource type="AudioStream" uid="uid://datbu7gkffcl3" path="res://assets/audios/musics/Flowing (RT 6.52)/Ambient Vol9 Flowing Intensity 1.wav" id="1_o1mpo"]
+[ext_resource type="AudioStream" uid="uid://sunovb66fc43" path="res://assets/audios/musics/Flowing (RT 6.52)/Ambient Vol9 Flowing Intensity 2.wav" id="2_6w8o3"]
+[ext_resource type="AudioStream" uid="uid://cv72fi774dkc1" path="res://assets/audios/musics/Flowing (RT 6.52)/Ambient Vol9 Flowing Main.wav" id="3_vlby6"]
+[ext_resource type="AudioStream" uid="uid://btc5vf4optthc" path="res://assets/audios/musics/Flowing (RT 6.52)/Ambient Vol9 Flowing Cut 30.wav" id="4_xsw7y"]
+[ext_resource type="AudioStream" uid="uid://c3bmb35dtngn6" path="res://assets/audios/musics/Flowing (RT 6.52)/Ambient Vol9 Flowing Cut 60.wav" id="5_lxpwk"]
+
+[resource]
+script = ExtResource("1_bbe68")
+Intensity1 = ExtResource("1_o1mpo")
+Intensity2 = ExtResource("2_6w8o3")
+Intensity3 = ExtResource("3_vlby6")
+Loop30 = ExtResource("4_xsw7y")
+Loop60 = ExtResource("5_lxpwk")
+ReverbTail = 6.52
+SongMode = 0
+metadata/_custom_type_script = "uid://b731simjwosad"

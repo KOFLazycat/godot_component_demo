@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="OvaniSong" load_steps=7 format=3 uid="uid://ocojkluw3a0j"]
+
+[ext_resource type="Script" uid="uid://b731simjwosad" path="res://utilities/music/OvaniPlugin/OvaniSong.gd" id="1_sjc6s"]
+[ext_resource type="AudioStream" uid="uid://n5s001uechf6" path="res://assets/audios/musics/Fight Or Flight (RT 2.909)/Chiptune Vol6 Fight Or Flight Intensity 1.wav" id="1_wpqgl"]
+[ext_resource type="AudioStream" uid="uid://owayjsqdo1gh" path="res://assets/audios/musics/Fight Or Flight (RT 2.909)/Chiptune Vol6 Fight Or Flight Intensity 2.wav" id="2_j5sq2"]
+[ext_resource type="AudioStream" uid="uid://x8t212s750lo" path="res://assets/audios/musics/Fight Or Flight (RT 2.909)/Chiptune Vol6 Fight Or Flight Main.wav" id="3_5565i"]
+[ext_resource type="AudioStream" uid="uid://dmrjfmu4hfw1h" path="res://assets/audios/musics/Fight Or Flight (RT 2.909)/Chiptune Vol6 Fight Or Flight Cut 30.wav" id="4_n8hoa"]
+[ext_resource type="AudioStream" uid="uid://b6u8o7owfh04f" path="res://assets/audios/musics/Fight Or Flight (RT 2.909)/Chiptune Vol6 Fight Or Flight Cut 60.wav" id="5_e2mx7"]
+
+[resource]
+script = ExtResource("1_sjc6s")
+Intensity1 = ExtResource("1_wpqgl")
+Intensity2 = ExtResource("2_j5sq2")
+Intensity3 = ExtResource("3_5565i")
+Loop30 = ExtResource("4_n8hoa")
+Loop60 = ExtResource("5_e2mx7")
+ReverbTail = 2.909
+SongMode = 0
+metadata/_custom_type_script = "uid://b731simjwosad"

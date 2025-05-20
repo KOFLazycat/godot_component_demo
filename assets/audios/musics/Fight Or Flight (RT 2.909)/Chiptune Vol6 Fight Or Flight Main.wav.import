@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://x8t212s750lo"
+path="res://.godot/imported/Chiptune Vol6 Fight Or Flight Main.wav-2227bedb2c1d080c8f4be6364326185d.sample"
+
+[deps]
+
+source_file="res://assets/audios/musics/Fight Or Flight (RT 2.909)/Chiptune Vol6 Fight Or Flight Main.wav"
+dest_files=["res://.godot/imported/Chiptune Vol6 Fight Or Flight Main.wav-2227bedb2c1d080c8f4be6364326185d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
