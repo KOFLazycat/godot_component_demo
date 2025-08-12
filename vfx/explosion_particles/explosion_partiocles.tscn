@@ -21,6 +21,7 @@ scale_curve = SubResource("CurveTexture_bgwte")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(480, 239)
+emitting = false
 amount = 60
 lifetime = 0.5
 explosiveness = 1.0

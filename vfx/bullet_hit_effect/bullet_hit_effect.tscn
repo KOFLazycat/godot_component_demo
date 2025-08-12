@@ -65,6 +65,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_pymng")
 
 [node name="SparkParticles" type="GPUParticles2D" parent="."]
+emitting = false
 texture = ExtResource("2_xnyd0")
 lifetime = 2.0
 one_shot = true
